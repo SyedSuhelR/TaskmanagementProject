@@ -1,80 +1,25 @@
+
 <table class="bg-container">
-  <tr class="container">
-  <th>User Id</th>
-  <th class="adjust-position">User Name</th>
-  <th class="adjust-position role">User Role</th>
-  <th>Action</th>
-  </tr>
-  <tr class="container">
-    <td>1</td>
-    <td>Pavan</td>
-    <td>Project Manager</td>
-    <td>
-      <div>
-        <button><i class="fa-regular fa-eye"></i></button>
-        <button><i class="fa-solid fa-pen-to-square"></i></button>
-        <button><i class="fa-solid fa-trash"></i></button>
-      </div>
-    </td>
-  </tr>
-  <tr class="container">
-    <td>1</td>
-    <td>Pavan</td>
-    <td>Project Manager</td>
-    <td>
-      <div>
-        <button><i class="fa-regular fa-eye"></i></button>
-        <button><i class="fa-solid fa-pen-to-square"></i></button>
-        <button><i class="fa-solid fa-trash"></i></button>
-      </div>
-    </td>
-  </tr>
-  <tr class="container">
-    <td>1</td>
-    <td>Pavan</td>
-    <td>Project Manager</td>
-    <td>
-      <div>
-        <button><i class="fa-regular fa-eye"></i></button>
-        <button><i class="fa-solid fa-pen-to-square"></i></button>
-        <button><i class="fa-solid fa-trash"></i></button>
-      </div>
-    </td>
-  </tr>
-  <tr class="container">
-    <td>1</td>
-    <td>Pavan</td>
-    <td>Project Manager</td>
-    <td>
-      <div>
-        <button><i class="fa-regular fa-eye"></i></button>
-        <button><i class="fa-solid fa-pen-to-square"></i></button>
-        <button><i class="fa-solid fa-trash"></i></button>
-      </div>
-    </td>
-  </tr>
-  <tr class="container">
-    <td>1</td>
-    <td>Pavan</td>
-    <td>Project Manager</td>
-    <td>
-      <div>
-        <button><i class="fa-regular fa-eye"></i></button>
-        <button><i class="fa-solid fa-pen-to-square"></i></button>
-        <button><i class="fa-solid fa-trash"></i></button>
-      </div>
-    </td>
-  </tr>
-  <tr class="container">
-    <td>1</td>
-    <td>Pavan</td>
-    <td>Project Manager</td>
-    <td>
-      <div>
-        <button><i class="fa-regular fa-eye"></i></button>
-        <button><i class="fa-solid fa-pen-to-square"></i></button>
-        <button><i class="fa-solid fa-trash"></i></button>
-      </div>
-    </td>
-  </tr>
+  <thead>
+    <tr class="container">
+      <th>User Id</th>
+      <th class="adjust-position">User Name</th>
+      <th class="adjust-position role">User Role</th>
+      <th>Action</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr class="container" *ngFor="let user of userList;let i=index">
+      <td>{{ user.id }}</td>
+      <td>{{ user.name }}</td>
+      <td>{{ user.role }}</td>
+      <td>
+        <div>
+          <button (click)="onView(i)"><i class="fa-regular fa-eye"></i></button>
+          <button (click)="onEdit(i)"><i class="fa-solid fa-pen-to-square"></i></button>
+          <button (click)="onDelete(i)"><i class="fa-solid fa-trash"></i></button>
+        </div>
+      </td>
+    </tr>
+  </tbody>
 </table>

@@ -8,6 +8,8 @@ import { AdminModuleComponent } from './admin/admin-module/admin-module.componen
 import { AdminHomeComponent } from './admin/admin-home/admin-home.component';
 import { HomePageComponent } from './admin/home-page/home-page.component';
 import { NavbarComponent } from './navbar/navbar.component';
+import { ReactiveFormsModule } from '@angular/forms';
+import { AddUserComponent } from './admin/add-user/add-user.component';
 
 
 
@@ -21,12 +23,14 @@ import { NavbarComponent } from './navbar/navbar.component';
     AdminHomeComponent,
     HomePageComponent,
     NavbarComponent,
+    AddUserComponent,
   ],
 
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FormsModule
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [
     provideClientHydration()

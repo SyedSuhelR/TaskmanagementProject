@@ -1,16 +1,17 @@
 <div class="container">
-    <h1 class="form-heading">Admin Login</h1>
-    <form>
-      <div class="mb-3">
-        <label for="name">Email</label>
-        <input type="email" class="form-control " id="name" />
-        <p id="nameErrMsg" class="error-message"></p>
-      </div>
-      <div class="mb-3">
-        <label for="password">Password</label>
-        <input type="text" class="form-control" id="email" />
-        <p id="emailErrMsg" class="error-message"></p>
-      </div>
-      <button type="submit" class="btn btn-primary">Login</button>
-    </form>
-  </div>
+  <h1 class="form-heading">Admin Login</h1>
+  <form (ngSubmit)="onSubmit()">
+    <div class="mb-3">
+      <label for="name">Email</label>
+      <input type="email" class="form-control " id="name" [(ngModel)]="enteredMail" />
+      
+    </div>
+    <div class="mb-3">
+      <label for="password">Password</label>
+      <input type="text" class="form-control" id="email" [(ngModel)]="enteredPass" />
+      <p id="emailErrMsg" class="error-message"></p>
+    </div>
+    <button type="submit" class="btn btn-primary">Login</button>
+    <p class="error-message" *ngIf="errorMessage">{{ errorMessage }}</p>
+  </form>
+</div>

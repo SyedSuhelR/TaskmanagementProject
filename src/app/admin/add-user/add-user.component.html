@@ -1,0 +1,19 @@
+<div class="container">
+    <h1 class="form-heading">Create User</h1>
+    <form>
+        <div class="mb-3">
+            <label for="id">User Id</label>
+            <input type="email" class="form-control " id="id" name="userId" [(ngModel)]="newUser.id" />      
+          </div>
+      <div class="mb-3">
+        <label for="name">User Name</label>
+        <input type="email" class="form-control " id="name" name="username" [(ngModel)]="newUser.name"/>      
+      </div>
+      <div class="mb-3">
+        <label for="password">User Role</label>
+        <input type="text" class="form-control" id="email" name="password" [(ngModel)]="newUser.role" />
+        <p id="emailErrMsg" class="error-message"></p>
+      </div>
+      <button (click)="onAdd()" type="submit" class="btn btn-primary">Add</button>
+    </form>
+  </div>
