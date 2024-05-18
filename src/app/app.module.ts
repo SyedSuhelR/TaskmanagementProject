@@ -6,6 +6,8 @@ import { AppComponent } from './app.component';
 import { FormsModule } from '@angular/forms';
 import { AdminModuleComponent } from './admin/admin-module/admin-module.component';
 import { AdminHomeComponent } from './admin/admin-home/admin-home.component';
+import { HomePageComponent } from './admin/home-page/home-page.component';
+import { NavbarComponent } from './navbar/navbar.component';
 
 
 
@@ -17,6 +19,8 @@ import { AdminHomeComponent } from './admin/admin-home/admin-home.component';
     AppComponent,
     AdminModuleComponent,
     AdminHomeComponent,
+    HomePageComponent,
+    NavbarComponent,
   ],
 
   imports: [
