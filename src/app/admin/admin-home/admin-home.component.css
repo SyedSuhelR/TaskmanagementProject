@@ -11,12 +11,7 @@ td{
 button{
     margin-left: 5px;
 }
-.bg-container{
-    background-color:aqua;
-    color: brown;
-    width: 100%;
-    height: 100vh;
-}
+
 .adjust-position{
     margin-right: 50px;
 }

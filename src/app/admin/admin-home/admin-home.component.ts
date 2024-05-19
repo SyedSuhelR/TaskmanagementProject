@@ -1,38 +1,31 @@
-import { Component,OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { UsersService } from '../../users.service';
 
 @Component({
   selector: 'app-admin-home',
   templateUrl: './admin-home.component.html',
-  styleUrl: './admin-home.component.css'
+  styleUrls: ['./admin-home.component.css']
 })
 export class AdminHomeComponent implements OnInit {
-  userList:any[]=[];
-  constructor(private user_service:UsersService){
+  userList: any[] = [];
 
-  }
+  constructor(private userService: UsersService, private router: Router) { }
+
   ngOnInit(): void {
-      this.userList=this.user_service.getUsers();
+    this.userList = this.userService.getUsers();
   }
-  updatedUserList:any[]=[];
 
+  onView(id: number) {
+    this.router.navigate(['/view-user', id]);
+  }
 
-    onView(id:number){
+  onDelete(id: number) {
+    this.userService.deleteUser(id);
+    this.userList = this.userService.getUsers(); // Refresh the user list
+  }
 
-    }
-    onDelete(id: number) {
-      this.user_service.deleteUsers(id);
-    }
-    
-    
-    onEdit(id: number) {
-      const userToUpdate = this.userList.find(user => user.id === id);
-      if (userToUpdate) {
-        // You can update the user's properties here
-        userToUpdate.name = 'Kotla';
-        userToUpdate.role = 'Project Manager';
-        // Alternatively, you can open a modal or form for editing
-      }
-    }
-    
+  onEdit(id: number) {
+    this.router.navigate(['/edit-user', id]);
+  }
 }

@@ -1,4 +1,4 @@
-
+<app-navbar></app-navbar>
 <table class="bg-container">
   <thead>
     <tr class="container">
@@ -9,15 +9,15 @@
     </tr>
   </thead>
   <tbody>
-    <tr class="container" *ngFor="let user of userList;let i=index">
+    <tr class="container" *ngFor="let user of userList">
       <td>{{ user.id }}</td>
       <td>{{ user.name }}</td>
       <td>{{ user.role }}</td>
       <td>
         <div>
-          <button (click)="onView(i)"><i class="fa-regular fa-eye"></i></button>
-          <button (click)="onEdit(i)"><i class="fa-solid fa-pen-to-square"></i></button>
-          <button (click)="onDelete(i)"><i class="fa-solid fa-trash"></i></button>
+          <button (click)="onView(user.id)"><i class="fa-regular fa-eye"></i></button>
+          <button (click)="onEdit(user.id)"><i class="fa-solid fa-pen-to-square"></i></button>
+          <button (click)="onDelete(user.id)"><i class="fa-solid fa-trash"></i></button>
         </div>
       </td>
     </tr>

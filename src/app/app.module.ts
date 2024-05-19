@@ -10,9 +10,9 @@ import { HomePageComponent } from './admin/home-page/home-page.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { AddUserComponent } from './admin/add-user/add-user.component';
-
-
-
+import { EditUserComponent } from './admin/edit-user/edit-user.component';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
+import { ViewUserComponent } from './admin/view-user/view-user.component';
 
 
 
@@ -24,13 +24,16 @@ import { AddUserComponent } from './admin/add-user/add-user.component';
     HomePageComponent,
     NavbarComponent,
     AddUserComponent,
+    EditUserComponent,
+    ViewUserComponent,
   ],
 
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    MatSnackBarModule
   ],
   providers: [
     provideClientHydration()

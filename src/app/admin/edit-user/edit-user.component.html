@@ -1,0 +1,24 @@
+<app-navbar></app-navbar>
+<div class="container">
+  <h1 class="form-heading">Edit User</h1>
+  <form #editForm="ngForm" (ngSubmit)="onUpdate(editForm)">
+    <div class="mb-3">
+      <label for="name">User Name</label>
+      <input type="text" class="form-control w-50" id="name" name="username" [(ngModel)]="newUser.name" required />
+      <div *ngIf="editForm.submitted && editForm.controls['username']?.invalid" class="text-danger">
+        User Name is required.
+      </div>
+    </div>
+    <div class="mb-3">
+      <label for="role">User Role</label>
+      <select class="form-select w-50" id="role" name="userRole" [(ngModel)]="newUser.role" required>
+        <option value="" disabled selected>Choose User</option>
+        <option *ngFor="let role of userRoles" [value]="role">{{ role }}</option>
+      </select>
+      <div *ngIf="editForm.submitted && editForm.controls['userRole']?.invalid" class="text-danger">
+        User Role is required.
+      </div>
+    </div>
+    <button type="submit" class="btn btn-primary">Update</button>
+  </form>
+</div>

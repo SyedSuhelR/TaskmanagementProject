@@ -3,12 +3,11 @@
   <form (ngSubmit)="onSubmit()">
     <div class="mb-3">
       <label for="name">Email</label>
-      <input type="email" class="form-control " id="name" [(ngModel)]="enteredMail" />
-      
+      <input type="email" class="form-control " name="email" id="name" [(ngModel)]="enteredMail" />  
     </div>
     <div class="mb-3">
       <label for="password">Password</label>
-      <input type="text" class="form-control" id="email" [(ngModel)]="enteredPass" />
+      <input type="text" class="form-control" id="email" name="password" [(ngModel)]="enteredPass" />
       <p id="emailErrMsg" class="error-message"></p>
     </div>
     <button type="submit" class="btn btn-primary">Login</button>

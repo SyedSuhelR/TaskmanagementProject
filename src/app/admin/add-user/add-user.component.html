@@ -1,19 +1,57 @@
+<app-navbar></app-navbar>
 <div class="container">
-    <h1 class="form-heading">Create User</h1>
-    <form>
-        <div class="mb-3">
-            <label for="id">User Id</label>
-            <input type="email" class="form-control " id="id" name="userId" [(ngModel)]="newUser.id" />      
-          </div>
-      <div class="mb-3">
-        <label for="name">User Name</label>
-        <input type="email" class="form-control " id="name" name="username" [(ngModel)]="newUser.name"/>      
+  <h1 class="form-heading">Create User</h1>
+  <form #userForm="ngForm" (ngSubmit)="onAdd(userForm)">
+    <div class="mb-3">
+      <label for="id">User Id</label>
+      <input type="number" class="form-control w-50" id="id" name="userId" [(ngModel)]="newUser.id" required />
+      <div *ngIf="userForm.submitted && userForm.controls['userId']?.invalid" class="text-danger">
+        User ID is required.
       </div>
-      <div class="mb-3">
-        <label for="password">User Role</label>
-        <input type="text" class="form-control" id="email" name="password" [(ngModel)]="newUser.role" />
-        <p id="emailErrMsg" class="error-message"></p>
+      <div *ngIf="idExistsError" class="text-danger">
+        User ID already exists. Please enter a unique ID number.
       </div>
-      <button (click)="onAdd()" type="submit" class="btn btn-primary">Add</button>
-    </form>
-  </div>
+    </div>
+    <div class="mb-3">
+      <label for="name">User Name</label>
+      <input type="text" class="form-control w-50" id="name" name="username" [(ngModel)]="newUser.name" required />
+      <div *ngIf="userForm.submitted && userForm.controls['username']?.invalid" class="text-danger">
+        User Name is required.
+      </div>
+    </div>
+    <div class="mb-3">
+      <label for="role">User Role</label>
+      <select class="form-select w-50" id="role" name="userRole" [(ngModel)]="newUser.role" required>
+        <option value="" disabled selected>Choose User</option>
+        <option value="Project Manager">Project Manager</option>
+        <option value="Team Member">Team Member</option>
+      </select>
+      <div *ngIf="userForm.submitted && userForm.controls['userRole']?.invalid" class="text-danger">
+        User Role is required.
+      </div>
+    </div>
+    <div class="mb-3">
+      <label for="pass">Password</label>
+      <input type="password" class="form-control w-50" id="pass" name="password" 
+             [(ngModel)]="newUser.password" required pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[\W_]).{6,}" (ngModelChange)="validatePassword(newUser.password)" />
+      <div *ngIf="userForm.submitted && userForm.controls['password']?.errors?.['required']" class="text-danger">
+        Password is required.
+      </div>
+      <div *ngIf="userForm.submitted && userForm.controls['password']?.errors?.['pattern']" class="text-danger">
+        <div *ngIf="passwordErrors.uppercase">
+          Password must contain at least one uppercase letter.
+        </div>
+        <div *ngIf="passwordErrors.specialCharacter">
+          Password must contain at least one special character.
+        </div>
+        <div *ngIf="passwordErrors.number">
+          Password must contain at least one number.
+        </div>
+        <div *ngIf="passwordErrors.length">
+          Password must be at least 6 characters long.
+        </div>
+      </div>
+    </div>
+    <button type="submit" class="btn btn-primary">Add</button>
+  </form>
+</div>
