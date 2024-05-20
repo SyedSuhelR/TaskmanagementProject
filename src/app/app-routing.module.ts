@@ -8,6 +8,9 @@ import { EditUserComponent } from './admin/edit-user/edit-user.component';
 import { ViewUserComponent } from './admin/view-user/view-user.component';
 import { ManageAccessComponent } from './admin/manage-access/manage-access.component';
 import { AuthGuard } from './auth.guard';
+import { ProjectManagerComponent } from './project-manager/project-manager.component';
+import { RoleGuard } from './role.guard';
+import { UnauthorizedComponent } from './unauthorized/unauthorized.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'admin-login', pathMatch: 'full' },
@@ -18,12 +21,8 @@ const routes: Routes = [
   { path: 'edit-user/:id', component: EditUserComponent },
   { path: 'view-user/:id', component: ViewUserComponent },
   { path: 'manage-access', component: ManageAccessComponent },
-  {
-    path: 'project-details',
-    component: ManageAccessComponent,
-    canActivate: [AuthGuard],
-    data: { permission: 'canViewAllProjects' },
-  },//add all components
+  { path: 'user', component: ProjectManagerComponent, canActivate: [RoleGuard], data: { expectedRole: 'admin' } },
+  { path: 'unauthorized', component: UnauthorizedComponent },
 ];
 
 @NgModule({

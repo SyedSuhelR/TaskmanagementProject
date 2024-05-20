@@ -14,6 +14,10 @@ import { EditUserComponent } from './admin/edit-user/edit-user.component';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { ViewUserComponent } from './admin/view-user/view-user.component';
 import { ManageAccessComponent } from './admin/manage-access/manage-access.component';
+import { ProjectManagerComponent } from './project-manager/project-manager.component';
+import { UnauthorizedComponent } from './unauthorized/unauthorized.component';
+import { TestComponentsComponent } from './test-components/test-components.component';
+import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
 
 
 
@@ -28,6 +32,9 @@ import { ManageAccessComponent } from './admin/manage-access/manage-access.compo
     EditUserComponent,
     ViewUserComponent,
     ManageAccessComponent,
+    ProjectManagerComponent,
+    UnauthorizedComponent,
+    TestComponentsComponent,
   ],
 
   imports: [
@@ -38,7 +45,8 @@ import { ManageAccessComponent } from './admin/manage-access/manage-access.compo
     MatSnackBarModule
   ],
   providers: [
-    provideClientHydration()
+    provideClientHydration(),
+    provideAnimationsAsync()
   ],
   bootstrap: [AppComponent]
 })
