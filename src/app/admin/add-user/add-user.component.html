@@ -33,10 +33,10 @@
     </div>
     <div class="mb-3">
       <label for="role">User Role</label>
-      <select class="form-select w-50" id="role" name="userRole" [(ngModel)]="newUser.role" required>
-        <option value="" disabled selected>Choose User</option>
-        <option value="Project Manager">Project Manager</option>
-        <option value="Team Member">Team Member</option>
+      <select class="form-select  w-50" id="role" name="userRole" [(ngModel)]="newUser.role" required>
+        <option value="" class="drop-down" selected>Choose User</option>
+        <option value="Project Manager" class="drop-down" >Project Manager</option>
+        <option value="Team Member" class="drop-down" >Team Member</option>
       </select>
       <div *ngIf="userForm.submitted && userForm.controls['userRole']?.invalid" class="text-danger">
         User Role is required.
