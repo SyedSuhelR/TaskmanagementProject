@@ -5,12 +5,12 @@ import { Injectable } from '@angular/core';
 })
 export class UsersService {
   private users: any[] = [
-    { id: 1, name: "Pavan", role: "Team Member", password: "password1" },
-    { id: 2, name: "Pavan", role: "Team Member", password: "password2" },
-    { id: 3, name: "Pavan", role: "Team Member", password: "password3" },
-    { id: 4, name: "Pavan", role: "Team Member", password: "password4" },
-    { id: 5, name: "Pavan", role: "Team Member", password: "password5" },
-    { id: 6, name: "Pavan", role: "Team Member", password: "password6" }
+    { id: 1, name: "Pavan",email:"pavan@gmail.com", role: "Team Member", password: "password1" },
+    { id: 2, name: "Pavan",email:"pavan@gmail.com",  role: "Team Member", password: "password2" },
+    { id: 3, name: "Pavan",email:"pavan@gmail.com",  role: "Team Member", password: "password3" },
+    { id: 4, name: "Pavan",email:"pavan@gmail.com",  role: "Team Member", password: "password4" },
+    { id: 5, name: "Pavan",email:"pavan@gmail.com",  role: "Team Member", password: "password5" },
+    { id: 6, name: "Pavan",email:"pavan@gmail.com",  role: "Team Member", password: "password6" }
   ];
 
   constructor() { }

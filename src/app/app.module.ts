@@ -13,6 +13,7 @@ import { AddUserComponent } from './admin/add-user/add-user.component';
 import { EditUserComponent } from './admin/edit-user/edit-user.component';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { ViewUserComponent } from './admin/view-user/view-user.component';
+import { ManageAccessComponent } from './admin/manage-access/manage-access.component';
 
 
 
@@ -26,6 +27,7 @@ import { ViewUserComponent } from './admin/view-user/view-user.component';
     AddUserComponent,
     EditUserComponent,
     ViewUserComponent,
+    ManageAccessComponent,
   ],
 
   imports: [

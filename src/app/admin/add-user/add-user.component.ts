@@ -10,7 +10,7 @@ import { User } from '../user.model';
   styleUrls: ['./add-user.component.css']
 })
 export class AddUserComponent implements OnInit {
-  newUser: User = { id: 0, name: '', role: '', password: '' };
+  newUser: User = { id: 0, name: '',email:'', role: '', password: '' };
   passwordErrors = {
     uppercase: false,
     specialCharacter: false,
@@ -27,7 +27,7 @@ export class AddUserComponent implements OnInit {
 
   ngOnInit(): void {
     // Reset newUser to empty state when the component initializes
-    this.newUser = { id: 0, name: '', role: '', password: '' };
+    this.newUser = { id: 0, name: '',email:'', role: '', password: '' };
   }
 
   validatePassword(password: string) {
@@ -44,7 +44,7 @@ export class AddUserComponent implements OnInit {
     this.checkUserIdExists();
     if (userForm.valid && !this.idExistsError && !this.isPasswordInvalid()) {
       this.userService.addUser(this.newUser);
-      this.newUser = { id: 0, name: '', role: '', password: '' };
+      this.newUser = { id: 0, name: '',email:'', role: '', password: '' };
       this.router.navigate(['/admin-home']);
       this.snackBar.open('User added successfully!', 'Close', {
         duration: 3000

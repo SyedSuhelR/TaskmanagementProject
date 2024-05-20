@@ -19,6 +19,18 @@
         User Name is required.
       </div>
     </div>
+    <div class="mg-3">
+      <label for="email">Email</label>
+      <input type="text" class="form-control w-50" id="email" name="username" [(ngModel)]="newUser.email" required />
+      <div *ngIf="userForm.submitted && userForm.controls['email']?.invalid" class="text-danger">
+        <div *ngIf="userForm.controls['email']?.errors?.['required']">
+          Email is required.
+        </div>
+        <div *ngIf="userForm.controls['email']?.errors?.['email']">
+          Please enter a valid email address.
+        </div>
+      </div>
+    </div>
     <div class="mb-3">
       <label for="role">User Role</label>
       <select class="form-select w-50" id="role" name="userRole" [(ngModel)]="newUser.role" required>

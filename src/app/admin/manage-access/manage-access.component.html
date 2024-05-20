@@ -1,0 +1,19 @@
+<!-- admin-permissions.component.html -->
+<app-navbar></app-navbar>
+<div class="container">
+  <div class="inner-container" *ngFor="let role of roles">
+    <h1>{{ role }}</h1>
+    <div *ngFor="let permission of permissions[role] | keyvalue">
+      <div class="form-check">
+        <input 
+          class="form-check-input" 
+          type="checkbox" 
+          [checked]="permission.value" 
+          (change)="updatePermissions(role, permission.key, $event)">
+        <label class="form-check-label">
+          {{ getPermissionLabel(permission.key) }}
+        </label>
+      </div>
+    </div>
+  </div>
+</div>
