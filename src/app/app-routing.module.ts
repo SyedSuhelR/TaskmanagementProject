@@ -12,6 +12,8 @@ import { ProjectManagerComponent } from './project-manager/project-manager.compo
 import { RoleGuard } from './role.guard';
 import { UnauthorizedComponent } from './unauthorized/unauthorized.component';
 import { LogoutComponent } from './logout/logout.component';
+import { TaskFilterComponent } from './task-filter/task-filter.component';
+import { TaskListComponent } from './task-list/task-list.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'admin-login', pathMatch: 'full' },
@@ -25,6 +27,8 @@ const routes: Routes = [
   { path: 'user', component: ProjectManagerComponent, canActivate: [RoleGuard], data: { expectedRole: 'projectmanager' } },
   { path: 'unauthorized', component: UnauthorizedComponent },
   { path: 'logout', component: LogoutComponent },
+  {path:'task-list',component:TaskListComponent,canActivate: [RoleGuard], data: { expectedRole: 'teammember' }},
+
 ];
 
 @NgModule({

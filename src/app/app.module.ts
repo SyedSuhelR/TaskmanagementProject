@@ -18,6 +18,9 @@ import { ProjectManagerComponent } from './project-manager/project-manager.compo
 import { UnauthorizedComponent } from './unauthorized/unauthorized.component';
 import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
 import { LogoutComponent } from './logout/logout.component';
+import { ProfileIconComponent } from './profile-icon/profile-icon.component';
+import { TaskFilterComponent } from './task-filter/task-filter.component';
+import { TaskListComponent } from './task-list/task-list.component';
 
 
 
@@ -35,6 +38,9 @@ import { LogoutComponent } from './logout/logout.component';
     ProjectManagerComponent,
     UnauthorizedComponent,
     LogoutComponent,
+    TaskFilterComponent,
+    TaskListComponent,
+    ProfileIconComponent,
   ],
 
   imports: [

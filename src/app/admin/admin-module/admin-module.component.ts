@@ -16,7 +16,7 @@ export class AdminModuleComponent implements OnInit {
 
   ngOnInit(): void {
     if (this.authService.isAuthenticate()) {
-      this.router.navigate(['/home']); // Navigate to home if already authenticated
+      this.navigateToRoleBasedRoute(); // Navigate based on user role if already authenticated
     }
   }
 
@@ -24,9 +24,24 @@ export class AdminModuleComponent implements OnInit {
     this.authService.login(this.enteredMail, this.enteredPass);
     if (this.authService.isAuthenticate()) {
       this.errorMessage = ''; // Reset error message if login is successful
-      this.router.navigate(['/home']); // Navigate to home component
+      this.navigateToRoleBasedRoute(); // Navigate based on user role
     } else {
       this.errorMessage = 'Invalid email or password'; // Set error message for failed login
+    }
+  }
+
+  private navigateToRoleBasedRoute(): void {
+    const userRole = this.authService.getUserRole();
+    if (userRole === 'admin') {
+      this.router.navigate(['/home']);
+    } else if (userRole === 'teammember') {
+      this.router.navigate(['/task-list']);
+    } else if (userRole === 'projectmanager') {
+      // Add navigation for project manager if needed
+      this.router.navigate(['/some-project-manager-route']);
+    } else {
+      // Handle other roles or unknown roles if necessary
+      this.router.navigate(['/unauthorized']); // Example route for unauthorized access
     }
   }
 }

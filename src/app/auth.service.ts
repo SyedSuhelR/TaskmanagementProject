@@ -5,7 +5,7 @@ import { Injectable } from '@angular/core';
 })
 export class AuthService {
   private isAuthenticated = false;
-  private userRole: string = "";
+  private userRole: string = '';
 
   constructor() {
     this.loadAuthState();
@@ -28,14 +28,14 @@ export class AuthService {
       this.saveAuthState(username, password, this.userRole);
     } else {
       this.isAuthenticated = false;
-      this.userRole = "";
+      this.userRole = '';
       this.clearAuthState();
     }
   }
 
   logout(): void {
     this.isAuthenticated = false;
-    this.userRole = "";
+    this.userRole = '';
     this.clearAuthState();
   }
 
@@ -43,7 +43,7 @@ export class AuthService {
     return this.isAuthenticated;
   }
 
-  getUserRole(): string | null {
+  getUserRole(): string {
     return this.userRole;
   }
 
@@ -62,7 +62,7 @@ export class AuthService {
     if (typeof window !== 'undefined' && window.localStorage) {
       const authState = localStorage.getItem('auth');
       if (authState) {
-        const { isAuthenticated, username, password, userRole } = JSON.parse(authState);
+        const { isAuthenticated, userRole } = JSON.parse(authState);
         this.isAuthenticated = isAuthenticated;
         this.userRole = userRole;
       }
