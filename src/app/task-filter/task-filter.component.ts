@@ -12,8 +12,6 @@ export class TaskFilterComponent {
   filterParams: any = {};
 
   applyFilter() {
-    // Populate filterParams based on user input
-    // For example, filterParams could be something like { status: 'Pending' }
     this.filterChange.emit(this.filterParams);
   }
 }

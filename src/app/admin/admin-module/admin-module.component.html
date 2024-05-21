@@ -1,16 +1,21 @@
-<div class="container">
-  <h1 class="form-heading">Admin Login</h1>
-  <form (ngSubmit)="onSubmit()">
-    <div class="mb-3">
-      <label for="name">Email</label>
-      <input type="email" class="form-control " name="email" id="name" [(ngModel)]="enteredMail" />  
+<div class="main-login">
+  <div class="left-login">
+    <h1>Welcome To<br>Your Task Manager</h1>
+    <img src="../../assets/images/person-working.svg" class="left-login-image" alt="Person Image">
+  </div>
+  <div class="right-login">
+    <div class="card-login">
+      <h1>LOGIN</h1>
+      <div class="textfield">
+        <label for="email">Email</label>
+        <input type="email" name="usuario" placeholder="Email" [(ngModel)]="enteredMail">
+      </div>
+      <div class="textfield">
+        <label for="password">Password</label>
+        <input type="password" name="password" placeholder="Password" [(ngModel)]="enteredPass">
+      </div>
+      <button (click)="onSubmit()" class="btn-login">Login</button>
+      <p class="error-message" *ngIf="errorMessage">{{ errorMessage }}</p>
     </div>
-    <div class="mb-3">
-      <label for="password">Password</label>
-      <input type="text" class="form-control" id="email" name="password" [(ngModel)]="enteredPass" />
-      <p id="emailErrMsg" class="error-message"></p>
-    </div>
-    <button type="submit" class="btn btn-primary">Login</button>
-    <p class="error-message" *ngIf="errorMessage">{{ errorMessage }}</p>
-  </form>
+  </div>
 </div>
