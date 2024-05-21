@@ -21,6 +21,7 @@ import { LogoutComponent } from './logout/logout.component';
 import { ProfileIconComponent } from './profile-icon/profile-icon.component';
 import { TaskFilterComponent } from './task-filter/task-filter.component';
 import { TaskListComponent } from './task-list/task-list.component';
+import { ProfilePageComponent } from './profile-page/profile-page.component';
 
 
 
@@ -41,6 +42,7 @@ import { TaskListComponent } from './task-list/task-list.component';
     TaskFilterComponent,
     TaskListComponent,
     ProfileIconComponent,
+    ProfilePageComponent,
   ],
 
   imports: [

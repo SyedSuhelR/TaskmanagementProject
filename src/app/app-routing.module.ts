@@ -14,6 +14,11 @@ import { UnauthorizedComponent } from './unauthorized/unauthorized.component';
 import { LogoutComponent } from './logout/logout.component';
 import { TaskFilterComponent } from './task-filter/task-filter.component';
 import { TaskListComponent } from './task-list/task-list.component';
+import { ProfilePageComponent } from './profile-page/profile-page.component';
+
+
+
+  
 
 const routes: Routes = [
   { path: '', redirectTo: 'admin-login', pathMatch: 'full' },
@@ -28,7 +33,7 @@ const routes: Routes = [
   { path: 'unauthorized', component: UnauthorizedComponent },
   { path: 'logout', component: LogoutComponent },
   {path:'task-list',component:TaskListComponent,canActivate: [RoleGuard], data: { expectedRole: 'teammember' }},
-
+  { path: 'profile', component: ProfilePageComponent },
 ];
 
 @NgModule({

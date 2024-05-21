@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { ProfileService } from '../profile.service'; // Ensure the path is correct
 
 @Component({
@@ -7,11 +8,9 @@ import { ProfileService } from '../profile.service'; // Ensure the path is corre
   styleUrls: ['./profile-icon.component.css']
 })
 export class ProfileIconComponent implements OnInit {
-  showProfile: boolean = false;
-  editing: boolean = false;
   profile: any = { name: '', email: '', mobile: '' }; // Initialize profile to avoid undefined
 
-  constructor(private profileService: ProfileService) { }
+  constructor(private profileService: ProfileService, private router: Router) { }
 
   ngOnInit(): void {
     this.loadProfile();
@@ -21,18 +20,7 @@ export class ProfileIconComponent implements OnInit {
     this.profile = this.profileService.getProfile() || this.profile; // Use default profile if not retrieved
   }
 
-  toggleProfile() {
-    this.showProfile = !this.showProfile;
-  }
-
-  toggleEdit() {
-    this.editing = !this.editing;
-  }
-
-  saveProfile() {
-    if (this.profile) {
-      this.profileService.updateProfile(this.profile);
-      this.toggleEdit(); // Exit editing mode after saving
-    }
+  navigateToProfile() {
+    this.router.navigate(['/profile']);
   }
 }

@@ -1,0 +1,16 @@
+<div class="profile-page">
+    <h1>Profile</h1>
+    <div class="profile-info">
+      <p>Name: {{ profile.name }}</p>
+      <p>Email: {{ profile.email }}</p>
+      <p>Mobile: {{ profile.mobile }}</p>
+      <button (click)="toggleEdit()">Edit Profile</button>
+      <div *ngIf="editing" class="edit-form">
+        <input type="text" [(ngModel)]="profile.name" placeholder="Name">
+        <input type="text" [(ngModel)]="profile.email" placeholder="Email">
+        <input type="text" [(ngModel)]="profile.mobile" placeholder="Mobile">
+        <button (click)="saveProfile()">Save</button>
+      </div>
+    </div>
+  </div>
+  

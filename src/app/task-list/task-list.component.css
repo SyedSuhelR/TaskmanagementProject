@@ -29,10 +29,12 @@ body {
     color: #fff;
     border: none;
     cursor: pointer;
+    
   }
   
   .filter-container button:hover {
     background-color: #0056b3;
+    
   }
   
   table {
@@ -75,6 +77,7 @@ body {
     color: #fff;
     border: none;
     cursor: pointer;
+  
   }
   
   .pagination button[disabled] {

@@ -11,7 +11,8 @@ body {
   display: flex;
   gap: 10px;
   margin-bottom: 20px;
-  align-items: center; /* Ensures all elements are vertically aligned */
+  align-items: center; 
+ 
 }
 
 .filter-container input[type="date"],
@@ -20,11 +21,11 @@ body {
   padding: 10px; /* Ensures consistent padding */
   font-size: 16px;
   height: 40px; /* Ensures consistent height */
-  width: 180px; /* Sets a consistent width for date inputs and select */
+  width: 190px; /* Sets a consistent width for date inputs and select */
 }
 
 .filter-container button {
-  width: auto; /* Allows buttons to adjust based on their content */
+  width: 150px; /* Allows buttons to adjust based on their content */
   background-color: #007bff;
   color: #fff;
   border: none;
@@ -58,13 +59,6 @@ th {
   background-color: #f2f2f2;
 }
 
-.pending {
-  color: red;
-}
-
-.completed {
-  color: green;
-}
 
 .pagination {
   display: flex;

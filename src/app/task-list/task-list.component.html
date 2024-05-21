@@ -22,7 +22,7 @@
         <tr *ngFor="let task of tasks">
           <td>{{ task.id }}</td>
           <td>{{ task.TeammemberDetails }}</td>
-          <td (click)="showClientDetails(task)">Click info {{ task.id }}</td>
+          <td (click)="showClientDetails(task)">Client info {{ task.id }}</td>
           <td>{{ task.title }}</td>
           <td>{{ task.createdDate }}</td>
           <td>{{ task.Completeddate }}</td>
