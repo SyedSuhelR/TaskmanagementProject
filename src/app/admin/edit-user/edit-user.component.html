@@ -9,6 +9,39 @@
         User Name is required.
       </div>
     </div>
+
+    <div class="mb-3">
+      <label for="email">Email</label>
+      <input type="email" class="form-control w-50" id="email" name="email" [(ngModel)]="newUser.email" required />
+      <div *ngIf="editForm.submitted && editForm.controls['email']?.invalid" class="text-danger">
+        Valid email is required.
+      </div>
+    </div>
+
+    <div class="mb-3">
+      <label for="password">Password</label>
+      <input type="password" class="form-control w-50" id="password" name="password" 
+             [(ngModel)]="newUser.password" required pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[\W_]).{6,}" 
+             (ngModelChange)="validatePassword(newUser.password)" />
+      <div *ngIf="editForm.submitted && editForm.controls['password']?.errors?.['required']" class="text-danger">
+        Password is required.
+      </div>
+      <div *ngIf="editForm.submitted && editForm.controls['password']?.errors?.['pattern']" class="text-danger">
+        <div *ngIf="passwordErrors.uppercase">
+          Password must contain at least one uppercase letter.
+        </div>
+        <div *ngIf="passwordErrors.specialCharacter">
+          Password must contain at least one special character.
+        </div>
+        <div *ngIf="passwordErrors.number">
+          Password must contain at least one number.
+        </div>
+        <div *ngIf="passwordErrors.length">
+          Password must be at least 6 characters long.
+        </div>
+      </div>
+    </div>
+
     <div class="mb-3">
       <label for="role">User Role</label>
       <select class="form-select w-50" id="role" name="userRole" [(ngModel)]="newUser.role" required>
@@ -19,6 +52,7 @@
         User Role is required.
       </div>
     </div>
+    
     <button type="submit" class="btn btn-primary">Update</button>
   </form>
 </div>

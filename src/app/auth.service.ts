@@ -5,30 +5,38 @@ import { Injectable } from '@angular/core';
 })
 export class AuthService {
   private isAuthenticated = false;
-  private userRole: string | null = null;
+  private userRole: string = "";
 
-  constructor() {}
+  constructor() {
+    this.loadAuthState();
+  }
 
   login(username: string, password: string): void {
-    // Example logic: Check if username and password are valid
-    if (username === 'admin' && password === 'admin') {
+    if ((username === 'admin@gmail.com' && password === 'admin@123') ||
+        (username === 'teammember@gmail.com' && password === 'teammember@123') ||
+        (username === 'projectmanager@gmail.com' && password === 'projectmanager@123')) {
+      
       this.isAuthenticated = true;
-      this.userRole = 'admin';
-    } else if (username === 'user' && password === 'user') {
-      this.isAuthenticated = true;
-      this.userRole = 'user';
+      if (username === 'admin@gmail.com') {
+        this.userRole = 'admin';
+      } else if (username === 'teammember@gmail.com') {
+        this.userRole = 'teammember';
+      } else if (username === 'projectmanager@gmail.com') {
+        this.userRole = 'projectmanager';
+      }
+      
+      this.saveAuthState(username, password, this.userRole);
     } else {
-      // Invalid credentials, do not authenticate
       this.isAuthenticated = false;
-      this.userRole = null;
+      this.userRole = "";
+      this.clearAuthState();
     }
   }
-  
 
   logout(): void {
-    // Implement logout logic
     this.isAuthenticated = false;
-    this.userRole = null;
+    this.userRole = "";
+    this.clearAuthState();
   }
 
   isAuthenticate(): boolean {
@@ -37,5 +45,33 @@ export class AuthService {
 
   getUserRole(): string | null {
     return this.userRole;
+  }
+
+  private saveAuthState(username: string, password: string, role: string): void {
+    if (typeof window !== 'undefined' && window.localStorage) {
+      localStorage.setItem('auth', JSON.stringify({
+        isAuthenticated: this.isAuthenticated,
+        username: username,
+        password: password,
+        userRole: role
+      }));
+    }
+  }
+
+  private loadAuthState(): void {
+    if (typeof window !== 'undefined' && window.localStorage) {
+      const authState = localStorage.getItem('auth');
+      if (authState) {
+        const { isAuthenticated, username, password, userRole } = JSON.parse(authState);
+        this.isAuthenticated = isAuthenticated;
+        this.userRole = userRole;
+      }
+    }
+  }
+
+  private clearAuthState(): void {
+    if (typeof window !== 'undefined' && window.localStorage) {
+      localStorage.removeItem('auth');
+    }
   }
 }

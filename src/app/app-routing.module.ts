@@ -11,18 +11,20 @@ import { AuthGuard } from './auth.guard';
 import { ProjectManagerComponent } from './project-manager/project-manager.component';
 import { RoleGuard } from './role.guard';
 import { UnauthorizedComponent } from './unauthorized/unauthorized.component';
+import { LogoutComponent } from './logout/logout.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'admin-login', pathMatch: 'full' },
-  { path: 'home', component: HomePageComponent },
+  { path: 'home', component: HomePageComponent, canActivate: [RoleGuard], data: { expectedRole: 'admin' } },
   { path: 'admin-home', component: AdminHomeComponent },
   { path: 'add-user', component: AddUserComponent },
   { path: 'admin-login', component: AdminModuleComponent },
   { path: 'edit-user/:id', component: EditUserComponent },
   { path: 'view-user/:id', component: ViewUserComponent },
   { path: 'manage-access', component: ManageAccessComponent },
-  { path: 'user', component: ProjectManagerComponent, canActivate: [RoleGuard], data: { expectedRole: 'admin' } },
+  { path: 'user', component: ProjectManagerComponent, canActivate: [RoleGuard], data: { expectedRole: 'projectmanager' } },
   { path: 'unauthorized', component: UnauthorizedComponent },
+  { path: 'logout', component: LogoutComponent },
 ];
 
 @NgModule({

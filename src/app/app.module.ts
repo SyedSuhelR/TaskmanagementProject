@@ -16,8 +16,8 @@ import { ViewUserComponent } from './admin/view-user/view-user.component';
 import { ManageAccessComponent } from './admin/manage-access/manage-access.component';
 import { ProjectManagerComponent } from './project-manager/project-manager.component';
 import { UnauthorizedComponent } from './unauthorized/unauthorized.component';
-import { TestComponentsComponent } from './test-components/test-components.component';
 import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
+import { LogoutComponent } from './logout/logout.component';
 
 
 
@@ -34,7 +34,7 @@ import { provideAnimationsAsync } from '@angular/platform-browser/animations/asy
     ManageAccessComponent,
     ProjectManagerComponent,
     UnauthorizedComponent,
-    TestComponentsComponent,
+    LogoutComponent,
   ],
 
   imports: [
