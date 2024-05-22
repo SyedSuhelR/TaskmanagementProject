@@ -1,16 +1,16 @@
-<div class="filter-container">
-  <input type="date" [(ngModel)]="filterParams.fromDate" placeholder="From Date" />
-  <input type="date" [(ngModel)]="filterParams.toDate" placeholder="To Date" />
-  <div>
-    <select [(ngModel)]="filterParams.status" name="status">
-      <option selected value="All">All</option>
+ <div class="filter-container"> 
+  <div class="select-input mt-3">
+    <select [(ngModel)]="filterParams.status" id="status" name="status">
+      <option value="" disabled selected>Select Status</option>
+      <option value="">All</option>
       <option value="Pending">Pending</option>
       <option value="In Progress">In Progress</option>
       <option value="Completed">Completed</option>
     </select>
   </div>
-  <button (click)="applyFilter()">Apply Filter</button>
-  <button routerLink="/logout">Logout</button>
+  <button class="mt-3" (click)="applyFilter()">Apply Filter</button>
+  <button class="mt-3" routerLink="/logout">Logout</button>
+
   <div class="profile-icon-container">
     <app-profile-icon></app-profile-icon>
   </div>

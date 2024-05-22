@@ -9,7 +9,9 @@ import { Component, Output, EventEmitter } from '@angular/core';
 export class TaskFilterComponent {
   @Output() filterChange = new EventEmitter<any>();
 
-  filterParams: any = {};
+  filterParams: any = {
+    status:""
+  };
 
   applyFilter() {
     this.filterChange.emit(this.filterParams);
