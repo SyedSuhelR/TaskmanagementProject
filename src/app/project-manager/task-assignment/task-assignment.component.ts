@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { TaskService } from '../services/task.service.service';
-import { TeamMemberService } from '../services/team-member.service';
+import { TaskService } from '../../services/task.service.service';
+import { TeamMemberService } from '../../services/team-member.service';
 
 @Component({
   selector: 'app-task-assignment',

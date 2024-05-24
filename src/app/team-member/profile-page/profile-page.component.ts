@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ProfileService } from '../profile.service'; // Ensure the path is correct
+import { ProfileService } from '../../services/profile.service'; // Ensure the path is correct
 
 @Component({
   selector: 'app-profile-page',

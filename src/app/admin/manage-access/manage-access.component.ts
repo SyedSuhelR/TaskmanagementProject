@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { RolesPermissionsService,Permissions } from '../../roles-permissions.service';
+import { RolesPermissionsService,Permissions } from '../../services/roles-permissions.service';
 
 @Component({
   selector: 'app-manage-access',

@@ -11,12 +11,12 @@ import { AuthGuard } from './auth.guard';
 import { RoleGuard } from './role.guard';
 import { UnauthorizedComponent } from './unauthorized/unauthorized.component';
 import { LogoutComponent } from './logout/logout.component';
-import { TaskFilterComponent } from './task-filter/task-filter.component';
-import { TaskListComponent } from './task-list/task-list.component';
-import { ProfilePageComponent } from './profile-page/profile-page.component';
-import { ClientInformationComponent } from './client-information/client-information.component';
-import { ProjectDetailsComponent } from './project-details/project-details.component';
-import { TaskAssignmentComponent } from './task-assignment/task-assignment.component';
+import { TaskFilterComponent } from './team-member/task-filter/task-filter.component';
+import { TaskListComponent } from './team-member/task-list/task-list.component';
+import { ProfilePageComponent } from './team-member/profile-page/profile-page.component';
+import { ClientInformationComponent } from './project-manager/client-information/client-information.component';
+import { ProjectDetailsComponent } from './project-manager/project-details/project-details.component';
+import { TaskAssignmentComponent } from './project-manager/task-assignment/task-assignment.component';
 
 
   
