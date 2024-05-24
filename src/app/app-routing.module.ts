@@ -7,8 +7,8 @@ import { AdminModuleComponent } from './admin/admin-module/admin-module.componen
 import { EditUserComponent } from './admin/edit-user/edit-user.component';
 import { ViewUserComponent } from './admin/view-user/view-user.component';
 import { ManageAccessComponent } from './admin/manage-access/manage-access.component';
-import { AuthGuard } from './auth.guard';
-import { RoleGuard } from './role.guard';
+import { AuthGuard } from './services/auth.guard';
+import { RoleGuard } from './services/role.guard';
 import { UnauthorizedComponent } from './unauthorized/unauthorized.component';
 import { LogoutComponent } from './logout/logout.component';
 import { TaskFilterComponent } from './team-member/task-filter/task-filter.component';
@@ -17,6 +17,9 @@ import { ProfilePageComponent } from './team-member/profile-page/profile-page.co
 import { ClientInformationComponent } from './project-manager/client-information/client-information.component';
 import { ProjectDetailsComponent } from './project-manager/project-details/project-details.component';
 import { TaskAssignmentComponent } from './project-manager/task-assignment/task-assignment.component';
+import { MainPageComponent } from './project-manager/main-page/main-page.component';
+import { EditProfileComponent } from './project-manager/edit-profile/edit-profile.component';
+import { ProfileComponent } from './project-manager/profile/profile.component';
 
 
   
@@ -34,10 +37,13 @@ const routes: Routes = [
   { path: 'logout', component: LogoutComponent },
   {path:'task-list',component:TaskListComponent,canActivate: [RoleGuard], data: { expectedRole: 'teammember' }},
   { path: 'profile', component: ProfilePageComponent },
-  { path: 'client-information', component: ClientInformationComponent ,canActivate: [RoleGuard], data: { expectedRole: 'projectmanager' } },
+  { path: 'client-information', component: ClientInformationComponent  },
   { path: 'project-details', component: ProjectDetailsComponent},
   
   { path: 'task-assignment', component: TaskAssignmentComponent },
+  { path: 'main-page', component: MainPageComponent,canActivate: [RoleGuard], data: { expectedRole: 'projectmanager' } },
+  {path:'profile',component:ProfileComponent},
+  {path:'editprofile',component:EditProfileComponent}
 ];
 
 @NgModule({

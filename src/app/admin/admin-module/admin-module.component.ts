@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { AuthService } from '../../auth.service';
+import { AuthService } from '../../services/auth.service';
 
 @Component({
   selector: 'app-admin-module',
@@ -38,7 +38,7 @@ export class AdminModuleComponent implements OnInit {
       this.router.navigate(['/task-list']);
     } else if (userRole === 'projectmanager') {
       // Add navigation for project manager if needed
-      this.router.navigate(['/client-information']);
+      this.router.navigate(['/main-page']);
     } else {
       // Handle other roles or unknown roles if necessary
       this.router.navigate(['/unauthorized']); // Example route for unauthorized access

@@ -25,6 +25,9 @@ import { TaskAssignmentComponent } from './project-manager/task-assignment/task-
 import { ProjectDetailsComponent } from './project-manager/project-details/project-details.component';
 import { ClientInformationComponent } from './project-manager/client-information/client-information.component';
 import { NavbarComponent } from './admin/admin-navbar/navbar.component';
+import { MainPageComponent } from './project-manager/main-page/main-page.component';
+import { ProfileComponent } from './project-manager/profile/profile.component';
+import { EditProfileComponent } from './project-manager/edit-profile/edit-profile.component';
 
 
 
@@ -48,7 +51,10 @@ import { NavbarComponent } from './admin/admin-navbar/navbar.component';
     TaskAssignmentComponent,
     ProjectDetailsComponent,
     ClientInformationComponent,
-    ProjectManagerNavbarComponent
+    ProjectManagerNavbarComponent,
+    MainPageComponent,
+    ProfileComponent,
+    EditProfileComponent
 
   ],
 

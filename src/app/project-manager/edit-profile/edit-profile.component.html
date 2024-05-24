@@ -1,0 +1,17 @@
+<h3 style="color: rgb(11, 11, 136);">Click Below Button to Edite</h3>
+<div class="profile-info" *ngIf="showProfile">
+
+
+    <button id="edite" (click)="toggleEdit()">Edite</button>
+
+
+<div *ngIf="editing">
+
+    <div class="Hii">
+   <input class="Edite" type="text" [(ngModel)]="profile.name"><br>
+   <input class="second-in" type="text" [(ngModel)]="profile.email"><br>
+    <input class="Edite" type="text" [(ngModel)]="profile.mobile"><br>
+    <button  class="Edite" (click)="saveProfile()">Save</button>
+
+</div>
+  </div>

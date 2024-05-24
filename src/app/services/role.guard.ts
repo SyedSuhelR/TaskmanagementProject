@@ -12,12 +12,6 @@ export class RoleGuard implements CanActivate {
     next: ActivatedRouteSnapshot,
     state: RouterStateSnapshot): boolean {
     const expectedRole = next.data['expectedRole'];
-
-     // Remove the extra dot after data
-    // Change isAuthenticate to isAuthenticated
-    // console.log(this.authService.isAuthenticate());
-    // console.log(this.authService.getUserRole());
-    // console.log(expectedRole);
     if (!this.authService.isAuthenticate() || this.authService.getUserRole() !== expectedRole) {
       this.router.navigate(['/unauthorized']);
       return false;

@@ -1,0 +1,11 @@
+.profile{
+    height: 400px;
+    width: 400px;
+   border: 2px solid rgb(112, 106, 106);
+    border-radius: 6px;
+    margin: 100px 00px 50px 400px;
+    padding: 100px;
+    font-size: 15px;
+    /* color: antiquewhite; */
+
+}
