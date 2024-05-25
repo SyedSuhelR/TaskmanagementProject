@@ -4,7 +4,7 @@
   <form #userForm="ngForm" (ngSubmit)="onAdd(userForm)">
     <div class="mb-3">
       <label for="id">User Id</label>
-      <input type="number" class="form-control w-50" id="id" name="userId" [(ngModel)]="newUser.id" required />
+      <input type="number" class="form-control w-50" id="id" name="userId" [(ngModel)]="newUser.id" required placeholder="Enter User ID"/>
       <div *ngIf="userForm.submitted && userForm.controls['userId']?.invalid" class="text-danger">
         User ID is required.
       </div>
@@ -14,14 +14,14 @@
     </div>
     <div class="mb-3">
       <label for="name">User Name</label>
-      <input type="text" class="form-control w-50" id="name" name="username" [(ngModel)]="newUser.name" required />
+      <input type="text" class="form-control w-50" id="name" name="username" [(ngModel)]="newUser.name" required placeholder="Enter User Name" />
       <div *ngIf="userForm.submitted && userForm.controls['username']?.invalid" class="text-danger">
         User Name is required.
       </div>
     </div>
     <div class="mg-3">
       <label for="email">Email</label>
-      <input type="text" class="form-control w-50" id="email" name="username" [(ngModel)]="newUser.email" required />
+      <input type="text" class="form-control w-50" id="email" name="username" [(ngModel)]="newUser.email" required placeholder="Enter User Email"/>
       <div *ngIf="userForm.submitted && userForm.controls['email']?.invalid" class="text-danger">
         <div *ngIf="userForm.controls['email']?.errors?.['required']">
           Email is required.
@@ -45,7 +45,7 @@
     <div class="mb-3">
       <label for="pass">Password</label>
       <input type="password" class="form-control w-50" id="pass" name="password" 
-             [(ngModel)]="newUser.password" required pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[\W_]).{6,}" (ngModelChange)="validatePassword(newUser.password)" />
+             [(ngModel)]="newUser.password" required pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[\W_]).{6,}" (ngModelChange)="validatePassword(newUser.password)" placeholder="Enter User Password"/>
       <div *ngIf="userForm.submitted && userForm.controls['password']?.errors?.['required']" class="text-danger">
         Password is required.
       </div>
@@ -64,6 +64,6 @@
         </div>
       </div>
     </div>
-    <button type="submit" class="btn btn-primary">Add</button>
+    <button type="submit" class="btn-input">Add</button>
   </form>
 </div>

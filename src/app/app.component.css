@@ -1,8 +1,7 @@
 
 .bg-container{
-    /* background-color: black; */
+    color: #77ffc0;
     height: 100vh;
-    color: black;
     background-size: cover;
-    background-color: white;
+    background-color: #201b2c;;
 }

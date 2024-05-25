@@ -4,7 +4,7 @@
   padding: 20px; /* Add some padding around the table */
   box-sizing: border-box; /* Ensure padding is included in the total width */
   width: 100%;
-  color: black;
+  color: #77ffc0;
 }
 
 table {
@@ -14,9 +14,6 @@ table {
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1), 0 -4px 8px rgba(0, 0, 0, 0.1), 4px 0 8px rgba(0, 0, 0, 0.1), -4px 0 8px rgba(0, 0, 0, 0.1);
 }
 
-thead {
-  background-color: #f2f2f2;
-}
 
 th, td {
   padding: 10px;
@@ -25,11 +22,11 @@ th, td {
 }
 
 th {
-  background-color: #4CAF50;
+  background-color: black;
 }
 
 tbody tr:hover {
-  background-color:rgb(226, 236, 226);
+  background-color:rgb(118, 122, 118);
   color: rgb(15, 14, 14);
 }
 
@@ -47,7 +44,7 @@ button {
   border: none;
   background-color: transparent;
   cursor: pointer;
-  color: black;
+  color: #77ffc0;
 }
 
 button i {
