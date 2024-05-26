@@ -10,14 +10,13 @@ import { TeamMemberService } from '../../services/team-member.service';
 })
 export class ProjectDetailsComponent implements OnInit {
   clients: { id: number; name: string }[] = [];
-  projects: { id: number; clientId: number; name: string; startDate: string; dueDate: string; actualEffort: number }[] = [];
+  projects: { id: number; clientId: number; name: string; startDate: string; dueDate: string; }[] = [];
   newProject = {
     id: 0,
     clientId: 0,
     name: '',
     startDate: '',
     dueDate: '',
-    actualEffort: 0
   };
   newTeamMember = {
     id: 0,
@@ -45,12 +44,6 @@ export class ProjectDetailsComponent implements OnInit {
     return client ? client.name : 'Unknown';
   }
 
-  addProject() {
-    this.projectService.addProject(this.newProject);
-    this.resetProjectForm();
-    this.projects = this.projectService.getProjects();
-  }
-
   startEditing(projectId: number) {
     this.editingProjectId = projectId;
     const project = this.projects.find(p => p.id === projectId);
@@ -60,19 +53,9 @@ export class ProjectDetailsComponent implements OnInit {
     }
   }
 
-  updateProject(projectId: number) {
-    this.projectService.updateProject(projectId, this.newProject);
-    this.resetProjectForm();
-    this.projects = this.projectService.getProjects();
-  }
-
   deleteProject(projectId: number) {
     this.projectService.deleteProject(projectId);
     this.projects = this.projectService.getProjects();
-  }
-
-  cancelEditing() {
-    this.resetProjectForm();
   }
 
   addTeamMember() {
@@ -89,12 +72,6 @@ export class ProjectDetailsComponent implements OnInit {
     }
   }
 
-  updateTeamMember(memberId: number) {
-    this.teamMemberService.updateTeamMember(memberId, this.newTeamMember);
-    this.teamMembers = this.teamMemberService.getTeamMembers(this.editingProjectId!);
-    this.resetMemberForm();
-  }
-
   deleteTeamMember(memberId: number) {
     this.teamMemberService.deleteTeamMember(memberId);
     this.teamMembers = this.teamMemberService.getTeamMembers(this.editingProjectId!);
@@ -108,22 +85,6 @@ export class ProjectDetailsComponent implements OnInit {
     }
   }
 
-  cancelEditingMember() {
-    this.resetMemberForm();
-  }
-
-  resetProjectForm() {
-    this.editingProjectId = null;
-    this.newProject = {
-      id: 0,
-      clientId: 0,
-      name: '',
-      startDate: '',
-      dueDate: '',
-      actualEffort: 0
-    };
-  }
-
   resetMemberForm() {
     this.editingMemberId = null;
     this.newTeamMember = {
@@ -133,5 +94,8 @@ export class ProjectDetailsComponent implements OnInit {
       projectId: this.editingProjectId !== null ? this.editingProjectId : 0
     };
   }
+
+  onclickView(){
+    
+  }
 }
-            

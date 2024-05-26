@@ -1,136 +1,54 @@
-<nav class="navbar navbar-expand-lg ">
-  <div class="collapse navbar-collapse" id="navbarSupportedContent">
-    <ul class="navbar-nav mr-auto">
-      <h4 id="mg">Pm</h4>\
-      <h4 id="pm">Project Manager</h4>
-      <li class="nav-item active">
-        <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" routerLink="/client-information">Projects and Client-Information</a>
-      </li>
-      <li class="nav-item dropdown">
-        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-          <a class="dropdown-item" href="#">Action</a>
-          <a class="dropdown-item" href="#">Another action</a>
-          <div class="dropdown-divider"></div>
-          <a class="dropdown-item" href="#">Something else here</a>
-        </div>
-      </li>
-    </ul>
-    <form class="form-inline my-2 my-lg-0">
-      <form class="form-inline">
-      </form>
-    </form>
-  </div>
-
-  <ul>
-    <span id="contact-sales">Contact Sales</span>
-  </ul>
-  <ul>
-    
-    <button id="login-btn" routerLink="/logout">Logout</button>
-  </ul>
-
-  <img  src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQA8cTn1-RRcQ_T4-cf40vYi4sjFEADIdog1TqwvXO3kw&s" routerLink="/profile" class="user-pic" (click)="toggleMenu()">
-
-</nav>
-<br>
-<br><br><br><br>
-<div id="contact">
-  <span>Contact Sales</span>
+<div>
+  <nav class="navbar navbar-expand-lg">
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item" routerLinkActive="active">
+          <a class="nav-link" routerLink="/client-information">Projects and Client-Information</a>
+        </li>
+        <li class="nav-item" routerLinkActive="active">
+          <a class="nav-link" routerLink="/logout">Logout</a>
+        </li>
+      </ul>
+        <a class="nav-link" routerLink="/editprofile">
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQA8cTn1-RRcQ_T4-cf40vYi4sjFEADIdog1TqwvXO3kw&s" class="user-pic" (click)="toggleMenu()">
+      </a>
+    </div>
+  </nav>
 </div>
 
-<span id="info">
-  <p>"Empower your team with our task management platform, <br> designed to simplify planning, tracking, and
-    collaboration."</p>
-</span>
-
-
-<div class="box-model">
-
-  <img
-    src="https://img.freepik.com/free-vector/bird-colorful-logo-gradient-vector_343694-1365.jpg?size=338&ext=jpg&ga=GA1.1.2082370165.1715990400&semt=sph"
-    alt="">
-
-
-
-  <div class="content-box-model">
-    <nav id="circle-content">
-      <img src="https://img.freepik.com/premium-psd/place-your-design-here_23-2148629070.jpg?w=740" alt="img">
-
-    </nav>
-    <p>
-      "Experience improved project efficiency, streamlined communication, and enhanced team collaboration. With our
-      intuitive interface and robust tools, you'll be able to manage projects of any size with confidence, driving
-      greater productivity and achieving better results."
-    </p>
-  </div>
-  <div class="content-box-model">
-    <nav id="circle-content">
-      <img src="https://www.randstad.in/themes/custom/bluex/src/assets/img/logo-bluex.png" alt="img">
-
-    </nav>
-    <p>
-      "They have led diverse project teams in various industries, overseeing projects ranging from small-scale
-      initiatives to large-scale enterprise implementations. They have a proven ability to navigate complex challenges,
-      adapt to changing priorities, and drive projects to successful completion."
-
-    </p>
-  </div>
-  <div class="content-box-model">
-    <nav id="circle-content">
-      <img
-        src="https://fiverr-res.cloudinary.com/images/q_auto,f_auto/gigs/178077014/original/f909e22235c6e502c39a9d3fae0f4f4174836b0b/create-a-minimalist-logo-for-you.png"
-        alt="img">
-    </nav>
-    <p>
-      "With diverse backgrounds and industry experience, our team members have a proven track record of excellence. They
-      are passionate about their work and committed to exceeding expectations in every project they undertake."
-    </p>
+<div class="container">
+  <!-- Your content here -->
+  <div class="box-model">
+    <div class="content-box-model">
+      <nav id="circle-content">
+        <img src="https://img.freepik.com/free-vector/bird-colorful-logo-gradient-vector_343694-1365.jpg?size=338&ext=jpg&ga=GA1.1.2082370165.1715990400&semt=sph" alt="">
+      </nav>
+      <p>"Experience improved project efficiency, streamlined communication, and enhanced team collaboration. With our intuitive interface and robust tools, you'll be able to manage projects of any size with confidence, driving greater productivity and achieving better results."</p>
+    </div>
+    <div class="content-box-model">
+      <nav id="circle-content">
+        <img src="https://www.randstad.in/themes/custom/bluex/src/assets/img/logo-bluex.png" alt="img">
+      </nav>
+      <p>"They have led diverse project teams in various industries, overseeing projects ranging from small-scale initiatives to large-scale enterprise implementations. They have a proven ability to navigate complex challenges, adapt to changing priorities, and drive projects to successful completion."</p>
+    </div>
+    <div class="content-box-model">
+      <nav id="circle-content">
+        <img src="https://fiverr-res.cloudinary.com/images/q_auto,f_auto/gigs/178077014/original/f909e22235c6e502c39a9d3fae0f4f4174836b0b/create-a-minimalist-logo-for-you.png" alt="img">
+      </nav>
+      <p>"With diverse backgrounds and industry experience, our team members have a proven track record of excellence. They are passionate about their work and committed to exceeding expectations in every project they undertake."</p>
+    </div>
   </div>
 </div>
-<div class="msg">
-  <img src="https://study.com/cimages/videopreview/p0o52p0iyp.jpg" alt="">
-</div>
-
-<div id="task">
-  <h2>Task management software</h2>
-  <h3>Manage tasks in multiple work views</h3>
-  <p> Assign tasks, track time and drive progress</p>
-  <p>Collaborate, share files and boost productivity</p>
-  <p>Onboard your team in minutes</p>
-</div>
-
-<footer>
-
 <p class="foot">
-  Randstad Solutions Limited, is a limited company registered in England and Wales with registered number 02389033.
-  Our registered office is at 450 Capability Green. Luton, Bedfordshire, LU1 3LU.
-  RANDSTAD, home HUMAN FORWARD and SHAPING THE WORLD OF WORK are registered trademarks of Randstad N.V.
-  © Randstad N.V. 2021
-<br>
-  <img src="https://cdn.icon-icons.com/icons2/4029/PNG/512/twitter_x_new_logo_square_x_icon_256075.png" alt="" class="icons-foot">
-
-  <img src="https://cdn-icons-png.flaticon.com/512/1384/1384031.png" alt="" class="icons-foot">
-
-  <img src="https://cdn-icons-png.flaticon.com/256/20/20673.png" alt="" class="icons-foot">
-
-  <img src="https://cdn3.iconfinder.com/data/icons/2018-social-media-black-and-white-logos/1000/2018_social_media_popular_app_logo_linkedin-512.png" alt="" class="icons-foot">
-
-  <img src="https://cdn-icons-png.flaticon.com/512/152/152810.png" alt="" class="icons-foot">
-
+  Randstad Solutions Limited, is a limited company registered in England and Wales with registered number 02389033. Our registered office is at 450 Capability Green. Luton, Bedfordshire, LU1 3LU. RANDSTAD, home HUMAN FORWARD and SHAPING THE WORLD OF WORK are registered trademarks of Randstad N.V. © Randstad N.V. 2021
   <br>
-
-  <span>terms & conditions</span>
-  <span>contact us</span>
-  <span>cookies</span>
-  <span>
-    your data</span>
-  <span>privacy notice  </span>
-  <span>intellectual property</span>
-  <span>site map</span>
-
+  <img src="https://cdn.icon-icons.com/icons2/4029/PNG/512/twitter_x_new_logo_square_x_icon_256075.png" alt="" class="icons-foot">
+  <img src="https://cdn-icons-png.flaticon.com/512/1384/1384031.png" alt="" class="icons-foot">
+  <img src="https://cdn-icons-png.flaticon.com/256/20/20673.png" alt="" class="icons-foot">
+  <img src="https://cdn3.iconfinder.com/data/icons/2018-social-media-black-and-white-logos/1000/2018_social_media_popular_app_logo_linkedin-512.png" alt="" class="icons-foot">
+  <img src="https://cdn-icons-png.flaticon.com/512/152/152810.png" alt="" class="icons-foot">
+  <br>
+  <span>Terms & Conditions</span><br>
+  <span>Contact Us</span><br>
+  <span>All Rights Reserved</span><br>
 </p>
-
-</footer>

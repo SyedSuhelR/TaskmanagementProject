@@ -2,39 +2,6 @@
 <div>
     <h2>Project Details</h2>
   
-    <!-- Form to add or edit a project -->
-    <form (ngSubmit)="editingProjectId ? updateProject(editingProjectId) : addProject()">
-      <div>
-        <label for="client">Client:</label>
-        <select name="client" [(ngModel)]="newProject.clientId" required>
-          <option *ngFor="let client of clients" [value]="client.id">{{ client.name }}</option>
-        </select>
-      </div>
-  
-      <div>
-        <label for="name">Project Name:</label>
-        <input type="text" name="name" [(ngModel)]="newProject.name" required>
-      </div>
-  
-      <div>
-        <label for="startDate">Start Date:</label>
-        <input type="date" name="startDate" [(ngModel)]="newProject.startDate">
-      </div>
-  
-      <div>
-        <label for="dueDate">Due Date:</label>
-        <input type="date" name="dueDate" [(ngModel)]="newProject.dueDate">
-      </div>
-  
-      <div>
-        <label for="actualEffort">Actual Effort:</label>
-        <input type="number" name="actualEffort" [(ngModel)]="newProject.actualEffort">
-      </div>
-  
-      <button type="submit">{{ editingProjectId ? 'Update Project' : 'Add Project' }}</button>
-      <button type="button" (click)="cancelEditing()">Cancel</button>
-    </form>
-  
     <!-- List of projects -->
     <table>
       <thead>
@@ -43,7 +10,6 @@
           <th>Project Name</th>
           <th>Start Date</th>
           <th>Due Date</th>
-          <th>Actual Effort</th>
           <th>Actions</th>
         </tr>
       </thead>
@@ -53,10 +19,12 @@
           <td>{{ project.name }}</td>
           <td>{{ project.startDate | date }}</td>
           <td>{{ project.dueDate | date }}</td>
-          <td>{{ project.actualEffort }}</td>
           <td>
-            <button (click)="startEditing(project.id)">Edit</button>
-            <button (click)="deleteProject(project.id)">Delete</button>
+            <div class="action-buttons">
+              <button (click)="onclickView()"><i class="fa-regular fa-eye"></i></button>
+              <button (click)="startEditing(project.id)"><i class="fa-solid fa-pen-to-square"></i></button>
+              <button (click)="deleteProject(project.id)"><i class="fa-solid fa-trash"></i></button>
+            </div>
           </td>
         </tr>
       </tbody>
@@ -102,5 +70,4 @@
         </tbody>
       </table>
     </div>
-  </div>
-  
+</div>

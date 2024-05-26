@@ -1,26 +1,26 @@
 
 <nav class="back">
-<div class="profile" >
-<div class="profile-icon-container" (click)="toggleProfile()">
-   
-  <img src="https://cdn-icons-png.flaticon.com/512/3135/3135715.png" alt="Profile " height="55px" width="60px">
-    <p><b>Profile..</b></p>
-    
-  
-  <div class="profile-info" *ngIf="showProfile">
-    <p>Name: {{ profile.name }}</p>
-    <p>Email: {{ profile.email }}</p>
-    <p>Mobile: {{ profile.mobile }}</p>
-   
-    <button (click)="toggleEdit()" routerLink="/editprofile" >update</button>
-  </div> 
-    <div *ngIf="editing">
-      <input type="text" [(ngModel)]="profile.name">
-     
-      <input type="text" [(ngModel)]="profile.email">
-      <input type="text" [(ngModel)]="profile.mobile">
-      <button (click)="saveProfile()">Save</button>
+    <div class="profile" >
+    <div class="profile-icon-container" (click)="toggleProfile()">
+       
+      <img src="https://cdn-icons-png.flaticon.com/512/3135/3135715.png" alt="Profile " height="55px" width="60px">
+        <p><b>Profile..</b></p>
+        
+      
+      <div class="profile-info" *ngIf="showProfile">
+        <p>Name: {{ profile.name }}</p>
+        <p>Email: {{ profile.email }}</p>
+        <p>Mobile: {{ profile.mobile }}</p>
+       
+        <button (click)="toggleEdit()" routerLink="/editprofile" >update</button>
+      </div> 
+        <div *ngIf="editing">
+          <input type="text" [(ngModel)]="profile.name">
+         
+          <input type="text" [(ngModel)]="profile.email">
+          <input type="text" [(ngModel)]="profile.mobile">
+          <button (click)="saveProfile()">Save</button>
+        </div>
+      </div>
     </div>
-  </div>
-</div>
-</nav>
+    </nav>

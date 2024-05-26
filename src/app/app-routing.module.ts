@@ -39,7 +39,6 @@ const routes: Routes = [
   { path: 'profile', component: ProfilePageComponent },
   { path: 'client-information', component: ClientInformationComponent  },
   { path: 'project-details', component: ProjectDetailsComponent},
-  
   { path: 'task-assignment', component: TaskAssignmentComponent },
   { path: 'main-page', component: MainPageComponent,canActivate: [RoleGuard], data: { expectedRole: 'projectmanager' } },
   {path:'profile',component:ProfileComponent},

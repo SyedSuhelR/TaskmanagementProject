@@ -1,46 +1,57 @@
-.container {
-    margin: 20px;
+  .container {
+    display: flex;
+    justify-content: center; /* Center the table horizontally */
+    padding: 20px; /* Add some padding around the table */
+    box-sizing: border-box; /* Ensure padding is included in the total width */
+    width: 100%;
+    color: #77ffc0;
   }
   
   table {
-    width: 100%;
+    width: 80%; /* Control the width of the table */
+    max-width: 800px; /* Maximum width for the table */
     border-collapse: collapse;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1), 0 -4px 8px rgba(0, 0, 0, 0.1), 4px 0 8px rgba(0, 0, 0, 0.1), -4px 0 8px rgba(0, 0, 0, 0.1);
   }
   
-  table, th, td {
-    border: 1px solid #ddd;
-  }
   
   th, td {
-    padding: 8px;
+    padding: 10px;
     text-align: left;
+    border-bottom: 1px solid #ddd;
   }
   
   th {
-    background-color: #f2f2f2;
+    background-color: black;
   }
   
-  form {
-    margin-bottom: 20px;
+  tbody tr:hover {
+    background-color:rgb(118, 122, 118);
+    color: rgb(15, 14, 14);
   }
   
-  form input {
-    margin-right: 10px;
+  td {
+    padding: 10px;
   }
   
-  form button {
-    margin-right: 5px;
+  .action-buttons {
+    display: flex;
+    gap: 5px;
   }
   
-  ul {
-    padding: 0;
-    list-style-type: none;
+  button {
+    padding: 5px 10px;
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
+    color: #77ffc0;
   }
   
-  ul li {
-    background: #e7e7e7;
-    margin: 2px 0;
-    padding: 5px;
-    border-radius: 4px;
+  button i {
+    font-size: 16px;
+  }
+  
+  button:hover i {
+    color: #007BFF;
   }
   

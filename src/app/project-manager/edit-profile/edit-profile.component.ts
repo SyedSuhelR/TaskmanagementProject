@@ -1,29 +1,31 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { ProfileService } from '../../services/project-manager-profile.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-edit-profile',
   templateUrl: './edit-profile.component.html',
-  styleUrl: './edit-profile.component.css'
+  styleUrls: ['./edit-profile.component.css']
 })
-export class EditProfileComponent {
-
+export class EditProfileComponent implements OnInit {
   showProfile: boolean = true;
   editing: boolean = false;
-  profile: any = { name: '', email: '', mobile: '' }; // Initialize profile to avoid undefined
+  profile: any = { name: 'John Doe', email: 'john.doe@example.com', mobile: '123-456-7890' }; // Sample profile data
 
-  constructor(private profileService: ProfileService) { }
+  constructor(private profileService: ProfileService,private router: Router) { }
 
   ngOnInit(): void {
     this.loadProfile();
   }
 
   loadProfile() {
-    this.profile = this.profileService.getProfile() || this.profile; // Use default profile if not retrieved
+    const loadedProfile = this.profileService.getProfile();
+    if (loadedProfile) {
+      this.profile = loadedProfile;
+    }
   }
-
-  toggleProfile() {
-    this.showProfile = this.showProfile;
+  navigateToMainPage() {
+    this.router.navigate(['/main-page']); // Navigate to main page route
   }
 
   toggleEdit() {

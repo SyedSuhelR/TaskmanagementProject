@@ -6,7 +6,6 @@ interface Project {
   name: string;
   startDate: string;
   dueDate: string;
-  actualEffort: number;
 }
 
 @Injectable({
@@ -14,8 +13,8 @@ interface Project {
 })
 export class ProjectService {
   private projects: Project[] = [
-    { id: 1, clientId: 1, name: 'Project 1', startDate: '2023-01-01', dueDate: '2023-12-31', actualEffort: 100 },
-    { id: 2, clientId: 2, name: 'Project 2', startDate: '2023-02-01', dueDate: '2023-11-30', actualEffort: 150 }
+    { id: 1, clientId: 1, name: 'Project 1', startDate: '2023-01-01', dueDate: '2023-12-31' },
+    { id: 2, clientId: 2, name: 'Project 2', startDate: '2023-02-01', dueDate: '2023-11-30' }
   ];
 
   getProjects(): Project[] {
