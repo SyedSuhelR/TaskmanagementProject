@@ -19,7 +19,8 @@ import { ProjectDetailsComponent } from './project-manager/project-details/proje
 import { TaskAssignmentComponent } from './project-manager/task-assignment/task-assignment.component';
 import { MainPageComponent } from './project-manager/main-page/main-page.component';
 import { EditProfileComponent } from './project-manager/edit-profile/edit-profile.component';
-import { ProfileComponent } from './project-manager/profile/profile.component';
+import { ProjectViewComponent } from './project-manager/project-view/project-view.component';
+
 
 
   
@@ -41,8 +42,8 @@ const routes: Routes = [
   { path: 'project-details', component: ProjectDetailsComponent},
   { path: 'task-assignment', component: TaskAssignmentComponent },
   { path: 'main-page', component: MainPageComponent,canActivate: [RoleGuard], data: { expectedRole: 'projectmanager' } },
-  {path:'profile',component:ProfileComponent},
-  {path:'editprofile',component:EditProfileComponent}
+  {path:'editprofile',component:EditProfileComponent},
+  {path:'project-view',component:ProjectViewComponent}
 ];
 
 @NgModule({

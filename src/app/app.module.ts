@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule, provideClientHydration } from '@angular/platform-browser';
-
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { FormsModule } from '@angular/forms';
@@ -28,6 +27,8 @@ import { NavbarComponent } from './admin/admin-navbar/navbar.component';
 import { MainPageComponent } from './project-manager/main-page/main-page.component';
 import { ProfileComponent } from './project-manager/profile/profile.component';
 import { EditProfileComponent } from './project-manager/edit-profile/edit-profile.component';
+import { ProjectViewComponent } from './project-manager/project-view/project-view.component';
+import { RouterModule } from '@angular/router';
 
 
 
@@ -54,7 +55,8 @@ import { EditProfileComponent } from './project-manager/edit-profile/edit-profil
     ProjectManagerNavbarComponent,
     MainPageComponent,
     ProfileComponent,
-    EditProfileComponent
+    EditProfileComponent,
+    ProjectViewComponent
 
   ],
 
@@ -63,7 +65,8 @@ import { EditProfileComponent } from './project-manager/edit-profile/edit-profil
     AppRoutingModule,
     FormsModule,
     ReactiveFormsModule,
-    MatSnackBarModule
+    MatSnackBarModule,
+    RouterModule
   ],
   providers: [
     provideClientHydration(),

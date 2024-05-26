@@ -21,53 +21,11 @@
           <td>{{ project.dueDate | date }}</td>
           <td>
             <div class="action-buttons">
-              <button (click)="onclickView()"><i class="fa-regular fa-eye"></i></button>
-              <button (click)="startEditing(project.id)"><i class="fa-solid fa-pen-to-square"></i></button>
-              <button (click)="deleteProject(project.id)"><i class="fa-solid fa-trash"></i></button>
+              <!-- Pass project id as query parameter when clicking view icon -->
+              <button [routerLink]="['/project-view']" [queryParams]="{ id: project.id }"><i class="fa-regular fa-eye"></i></button>
             </div>
           </td>
         </tr>
       </tbody>
     </table>
-  
-    <!-- Form to add team members to the selected project -->
-    <div *ngIf="editingProjectId !== null">
-      <h3>Manage Team Members for {{ newProject.name }}</h3>
-  
-      <form (ngSubmit)="addTeamMember()">
-        <div>
-          <label for="memberName">Name:</label>
-          <input type="text" id="memberName" [(ngModel)]="newTeamMember.name" name="memberName" required>
-        </div>
-  
-        <div>
-          <label for="memberRole">Role:</label>
-          <input type="text" id="memberRole" [(ngModel)]="newTeamMember.role" name="memberRole" required>
-        </div>
-  
-        <button type="submit">{{ editingMemberId === null ? 'Add Team Member' : 'Update Team Member' }}</button>
-        <button type="button" (click)="resetMemberForm()">Cancel</button>
-      </form>
-  
-      <!-- List of team members for the selected project -->
-      <table>
-        <thead>
-          <tr>
-            <th>Name</th>
-            <th>Role</th>
-            <th>Actions</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr *ngFor="let member of teamMembers">
-            <td>{{ member.name }}</td>
-            <td>{{ member.role }}</td>
-            <td>
-              <button (click)="startEditingMember(member.id)">Edit</button>
-              <button (click)="deleteTeamMember(member.id)">Delete</button>
-            </td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
 </div>

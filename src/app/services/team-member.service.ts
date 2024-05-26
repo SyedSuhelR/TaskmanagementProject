@@ -10,12 +10,14 @@ export class TeamMemberService {
     { id: 3, name: 'Mike Johnson', role: 'Tester', projectId: 2 }
   ];
 
-  getTeamMembers(projectId?: number) {
+  getTeamMembers(projectId?: number | string) {
     if (projectId !== undefined) {
-      return this.teamMembers.filter(member => member.projectId === projectId);
+      const id = typeof projectId === 'string' ? parseInt(projectId, 10) : projectId;
+      return this.teamMembers.filter(member => member.projectId === id);
     }
     return this.teamMembers;
   }
+  
 
   addTeamMember(member: { id: number; name: string; role: string; projectId: number }) {
     this.teamMembers.push(member);

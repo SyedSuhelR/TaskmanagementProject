@@ -1,0 +1,41 @@
+<div *ngIf="teamMembers.length > 0">
+    <h3>Manage Team Members</h3>
+  
+    <!-- Form to add team members -->
+    <form (ngSubmit)="addTeamMember()">
+      <div>
+        <label for="memberName">Name:</label>
+        <input type="text" id="memberName" [(ngModel)]="newTeamMember.name" name="memberName" required>
+      </div>
+  
+      <div>
+        <label for="memberRole">Role:</label>
+        <input type="text" id="memberRole" [(ngModel)]="newTeamMember.role" name="memberRole" required>
+      </div>
+  
+      <button type="submit">Add Team Member</button>
+      <button type="button" (click)="resetMemberForm()">Cancel</button>
+    </form>
+  
+    <!-- List of team members -->
+    <table>
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Role</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let member of teamMembers">
+          <td>{{ member.name }}</td>
+          <td>{{ member.role }}</td>
+          <td>
+            <button (click)="startEditingMember(member.id)">Edit</button>
+            <button (click)="deleteTeamMember(member.id)">Delete</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  
