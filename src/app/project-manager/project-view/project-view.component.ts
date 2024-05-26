@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { TeamMemberService } from '../../services/team-member.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-project-view',
@@ -18,10 +19,12 @@ export class ProjectViewComponent implements OnInit {
   // teamMembers: { id: number; name: string; role: string }[] = [];
   editingProjectId: number | null = null;
   teamMembers: { id: number; name: string; role: string; projectId: number }[] = [];
+  modalVisible: boolean = false;
 
   constructor(
     private route: ActivatedRoute,
-    private teamMemberService: TeamMemberService
+    private teamMemberService: TeamMemberService,
+    private router: Router
   ) {}
 
   ngOnInit(): void {
@@ -43,12 +46,14 @@ export class ProjectViewComponent implements OnInit {
     if (projectId) {
       const newMember = { ...this.newTeamMember, projectId, id: this.generateId() }; // Include generated ID
       this.teamMemberService.addTeamMember(newMember);
-      // Update the list of team members
-      this.teamMembers = this.teamMemberService.getTeamMembers(projectId);
       // Reset the form
       this.resetMemberForm();
+      // Update the list of team members directly without fetching from the service
+      this.teamMembers.push(newMember); // Add the new member to the existing list
+      // Close the modal
+      this.modalVisible = false;
     }
-  }
+}
   
   private generateId(): number {
     // Implement your logic to generate a unique ID, for example:
@@ -82,4 +87,15 @@ export class ProjectViewComponent implements OnInit {
     this.newTeamMember.name = '';
     this.newTeamMember.role = '';
   }
+  openModal() {
+    this.modalVisible = true;
+}
+
+closeModal() {
+    this.modalVisible = false;
+}
+
+openTaskManagement(){
+  this.router.navigate(['/task-assignment']);
+}
 }

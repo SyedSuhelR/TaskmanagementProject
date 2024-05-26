@@ -34,24 +34,3 @@
     padding: 10px;
   }
   
-  .action-buttons {
-    display: flex;
-    gap: 5px;
-  }
-  
-  button {
-    padding: 5px 10px;
-    border: none;
-    background-color: transparent;
-    cursor: pointer;
-    color: #77ffc0;
-  }
-  
-  button i {
-    font-size: 16px;
-  }
-  
-  button:hover i {
-    color: #007BFF;
-  }
-  

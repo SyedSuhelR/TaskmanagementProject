@@ -1,41 +1,52 @@
+<h2 class="text-center">Manage Team Members</h2>
 <div *ngIf="teamMembers.length > 0">
-    <h3>Manage Team Members</h3>
-  
-    <!-- Form to add team members -->
-    <form (ngSubmit)="addTeamMember()">
-      <div>
-        <label for="memberName">Name:</label>
-        <input type="text" id="memberName" [(ngModel)]="newTeamMember.name" name="memberName" required>
-      </div>
-  
-      <div>
-        <label for="memberRole">Role:</label>
-        <input type="text" id="memberRole" [(ngModel)]="newTeamMember.role" name="memberRole" required>
-      </div>
-  
-      <button type="submit">Add Team Member</button>
-      <button type="button" (click)="resetMemberForm()">Cancel</button>
-    </form>
-  
-    <!-- List of team members -->
-    <table>
+  <div class="container">
+  <!-- List of team members -->
+  <table>
       <thead>
-        <tr>
-          <th>Name</th>
-          <th>Role</th>
-          <th>Actions</th>
-        </tr>
+          <tr>
+              <th>Name</th>
+              <th>Role</th>
+              <th>Delete Member</th>
+          </tr>
       </thead>
       <tbody>
-        <tr *ngFor="let member of teamMembers">
-          <td>{{ member.name }}</td>
-          <td>{{ member.role }}</td>
-          <td>
-            <button (click)="startEditingMember(member.id)">Edit</button>
-            <button (click)="deleteTeamMember(member.id)">Delete</button>
-          </td>
-        </tr>
+          <tr *ngFor="let member of teamMembers">
+              <td>{{ member.name }}</td>
+              <td>{{ member.role }}</td>
+              <td>
+                <button (click)="deleteTeamMember(member.id)"><i class="fa-solid fa-trash"></i></button>
+              </td>
+          </tr>
       </tbody>
-    </table>
+  </table>
+</div>
+<div class="button-center">
+  <button class="edit-button" (click)="openModal()">Add Team Member</button>
+  <button class="edit-button" (click)="openTaskManagement()">Task Management</button>
+</div>
+</div>
+<!-- Popup modal -->
+<div class="container-model">
+  <div id="myModal" class="modal" [style.display]="modalVisible ? 'block' : 'none'">
+      <div class="modal-content">
+          <span class="close" (click)="closeModal()">&times;</span>
+          <h2>Add Team Member</h2>
+          <!-- Bootstrap Form to add team members -->
+          <form>
+              <div class="form-group">
+                  <label for="memberName">Name:</label>
+                  <input type="text" id="memberName" [(ngModel)]="newTeamMember.name" name="memberName" class="form-control" required>
+              </div>
+
+              <div class="form-group">
+                  <label for="memberRole">Role:</label>
+                  <input type="text" id="memberRole" [(ngModel)]="newTeamMember.role" name="memberRole" class="form-control" required>
+              </div>
+              <div class="action-buttons">
+                  <button (click)="addTeamMember()" class="edit-button">Add</button>
+                  <button type="button" (click)="resetMemberForm()" class="edit-button">Cancel</button>
+              </div>
+          </form>
+      </div>
   </div>
-  
