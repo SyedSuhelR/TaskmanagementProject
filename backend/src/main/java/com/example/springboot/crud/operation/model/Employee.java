@@ -4,8 +4,10 @@ import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import java.util.Set;
+import org.springframework.web.bind.annotation.CrossOrigin;
 
+import java.util.Set;
+@CrossOrigin
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
@@ -23,13 +25,7 @@ public class Employee {
     private String activeStatus;
     private String password;
 
-    @ManyToMany
-    @JoinTable(
-            name = "employee_project",
-            joinColumns = @JoinColumn(name = "employee_id"),
-            inverseJoinColumns = @JoinColumn(name = "project_id")
-    )
-    private Set<ProjectDetails> projects;
+
 
     // Getters and setters
 
@@ -82,13 +78,7 @@ public class Employee {
         this.password = password;
     }
 
-    public Set<ProjectDetails> getProjects() {
-        return projects;
-    }
 
-    public void setProjects(Set<ProjectDetails> projects) {
-        this.projects = projects;
-    }
 
     @Override
     public String toString() {
