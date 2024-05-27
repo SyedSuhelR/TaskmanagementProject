@@ -1,40 +1,33 @@
 import { Injectable } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
 export class UsersService {
-  private users: any[] = [
-    { id: 1, name: "Pavan",email:"pavan@gmail.com", role: "Team Member", password: "password1" },
-    { id: 2, name: "Pavan",email:"pavan@gmail.com",  role: "Team Member", password: "password2" },
-    { id: 3, name: "Pavan",email:"pavan@gmail.com",  role: "Team Member", password: "password3" },
-    { id: 4, name: "Pavan",email:"pavan@gmail.com",  role: "Team Member", password: "password4" },
-    { id: 5, name: "Pavan",email:"pavan@gmail.com",  role: "Team Member", password: "password5" },
-    { id: 6, name: "Pavan",email:"pavan@gmail.com",  role: "Team Member", password: "password6" }
-  ];
+  private apiUrl = 'http://localhost:8080/users';
 
-  constructor() { }
+  constructor(private http: HttpClient) { }
 
-  getUsers(): any[] {
-    return this.users;
+  getUsers(): Observable<any[]> {
+    return this.http.get<any[]>(this.apiUrl);
   }
 
-  addUser(user: any): void {
-    this.users.push(user);
+  addUser(user: any): Observable<any> {
+    return this.http.post<any>(`${this.apiUrl}/add`, user); // Updated to use /add endpoint
   }
 
-  deleteUser(id: number): void {
-    this.users = this.users.filter(user => user.id !== id);
+
+  deleteUser(id: number): Observable<any> {
+    return this.http.delete(`${this.apiUrl}/${id}`);
   }
 
-  updateUser(id: number, updatedUser: any): void {
-    const userIndex = this.users.findIndex(user => user.id === id);
-    if (userIndex !== -1) {
-      this.users[userIndex] = { ...this.users[userIndex], ...updatedUser };
-    }
+  updateUser(id: number, updatedUser: any): Observable<any> {
+    return this.http.put<any>(`${this.apiUrl}/${id}`, updatedUser);
   }
 
-  getUserById(id: number): any {
-    return this.users.find(user => user.id === id);
+  getUserById(id: number): Observable<any> {
+    return this.http.get<any>(`${this.apiUrl}/${id}`);
   }
 }

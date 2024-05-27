@@ -31,6 +31,7 @@ import { ProjectViewComponent } from './project-manager/project-view/project-vie
 import { RouterModule } from '@angular/router';
 import { TeamMemberTaskAssignmentComponent } from './team-member/team-member-task-assignment/team-member-task-assignment.component';
 import { TeamMemberProjectsdetailsComponent } from './team-member/team-member-projectsdetails/team-member-projectsdetails.component';
+import { HttpClientModule } from '@angular/common/http';
 
 
 
@@ -70,7 +71,8 @@ import { TeamMemberProjectsdetailsComponent } from './team-member/team-member-pr
     FormsModule,
     ReactiveFormsModule,
     MatSnackBarModule,
-    RouterModule
+    RouterModule,
+    HttpClientModule
   ],
   providers: [
     provideClientHydration(),

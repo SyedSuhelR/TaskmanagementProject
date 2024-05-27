@@ -3,16 +3,6 @@
   <h1 class="form-heading">Create User</h1>
   <form #userForm="ngForm" (ngSubmit)="onAdd(userForm)">
     <div class="mb-3">
-      <label for="id">User Id</label>
-      <input type="number" class="form-control w-50" id="id" name="userId" [(ngModel)]="newUser.id" required placeholder="Enter User ID"/>
-      <div *ngIf="userForm.submitted && userForm.controls['userId']?.invalid" class="text-danger">
-        User ID is required.
-      </div>
-      <div *ngIf="idExistsError" class="text-danger">
-        User ID already exists. Please enter a unique ID number.
-      </div>
-    </div>
-    <div class="mb-3">
       <label for="name">User Name</label>
       <input type="text" class="form-control w-50" id="name" name="username" [(ngModel)]="newUser.name" required placeholder="Enter User Name" />
       <div *ngIf="userForm.submitted && userForm.controls['username']?.invalid" class="text-danger">
@@ -21,7 +11,7 @@
     </div>
     <div class="mg-3">
       <label for="email">Email</label>
-      <input type="text" class="form-control w-50" id="email" name="username" [(ngModel)]="newUser.email" required placeholder="Enter User Email"/>
+      <input type="email" class="form-control w-50" id="email" name="email" [(ngModel)]="newUser.email" required placeholder="Enter User Email"/>
       <div *ngIf="userForm.submitted && userForm.controls['email']?.invalid" class="text-danger">
         <div *ngIf="userForm.controls['email']?.errors?.['required']">
           Email is required.
@@ -33,10 +23,10 @@
     </div>
     <div class="mb-3">
       <label for="role">User Role</label>
-      <select class="form-select  w-50" id="role" name="userRole" [(ngModel)]="newUser.role" required>
+      <select class="form-select w-50" id="role" name="userRole" [(ngModel)]="newUser.userRole" required>
         <option value="" class="drop-down" selected>Choose User</option>
-        <option value="Project Manager" class="drop-down" >Project Manager</option>
-        <option value="Team Member" class="drop-down" >Team Member</option>
+        <option value="Project Manager" class="drop-down">Project Manager</option>
+        <option value="Team Member" class="drop-down">Team Member</option>
       </select>
       <div *ngIf="userForm.submitted && userForm.controls['userRole']?.invalid" class="text-danger">
         User Role is required.

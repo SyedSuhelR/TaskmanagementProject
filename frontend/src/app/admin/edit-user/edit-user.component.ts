@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { UsersService } from '../../services/users.service';
+import { MatSnackBar } from '@angular/material/snack-bar'; // Import MatSnackBar for notifications
 
 @Component({
   selector: 'app-edit-user',
@@ -21,21 +22,38 @@ export class EditUserComponent implements OnInit {
   constructor(
     private route: ActivatedRoute,
     private userService: UsersService,
-    private router: Router
+    private router: Router,
+    private snackBar: MatSnackBar // Inject MatSnackBar
   ) {}
 
   ngOnInit(): void {
     this.userId = +this.route.snapshot.paramMap.get('id')!;
-    this.newUser = { ...this.userService.getUserById(this.userId) };
+    this.userService.getUserById(this.userId).subscribe({
+      next: (user) => {
+        this.newUser = user;
+      },
+      error: (error) => {
+        console.error('Error fetching user data:', error);
+        this.snackBar.open('Error fetching user data!', 'Close', { duration: 3000 });
+      }
+    });
   }
 
   onUpdate(editForm: any): void {
     this.validatePassword(this.newUser.password); // Ensure validation on submit
 
     if (editForm.valid && this.isPasswordValid()) {
-      this.userService.updateUser(this.userId, this.newUser);
-      this.resetForm(editForm);
-      this.router.navigate(['/admin-home']);
+      this.userService.updateUser(this.userId, this.newUser).subscribe({
+        next: (response) => {
+          console.log('User updated successfully:', response);
+          this.snackBar.open('User updated successfully!', 'Close', { duration: 3000 });
+          this.router.navigate(['/admin-home']);
+        },
+        error: (error) => {
+          console.error('Error updating user:', error);
+          this.snackBar.open('Error updating user!', 'Close', { duration: 3000 });
+        }
+      });
     }
   }
 
