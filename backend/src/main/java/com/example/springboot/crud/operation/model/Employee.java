@@ -1,10 +1,10 @@
 package com.example.springboot.crud.operation.model;
 
-
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import java.util.Set;
 
 @Data
 @NoArgsConstructor
@@ -12,7 +12,6 @@ import lombok.NoArgsConstructor;
 @Entity
 @Table(name="users")
 public class Employee {
-
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -25,27 +24,22 @@ public class Employee {
     private String password;
 
     @ManyToMany
-    @JoinColumn(name = "projectId")
-    private ProjectDetails projectId;
+    @JoinTable(
+            name = "employee_project",
+            joinColumns = @JoinColumn(name = "employee_id"),
+            inverseJoinColumns = @JoinColumn(name = "project_id")
+    )
+    private Set<ProjectDetails> projects;
 
-    @ManyToMany
-    @JoinColumn(name = "Id")
-    private clientDetails id;
+    // Getters and setters
 
-    public clientDetails getId() {
-        return id;
+
+    public long getUserid() {
+        return userid;
     }
 
-    public void setId(clientDetails id) {
-        this.id = id;
-    }
-
-    public ProjectDetails getProjectId() {
-        return projectId;
-    }
-
-    public void setProjectId(ProjectDetails projectId) {
-        this.projectId = projectId;
+    public void setUserid(long userid) {
+        this.userid = userid;
     }
 
     public String getName() {
@@ -54,14 +48,6 @@ public class Employee {
 
     public void setName(String name) {
         this.name = name;
-    }
-
-    public long getUserid() {
-        return userid;
-    }
-
-    public void setUserid(long userid) {
-        this.userid = userid;
     }
 
     public String getEmail() {
@@ -96,8 +82,13 @@ public class Employee {
         this.password = password;
     }
 
+    public Set<ProjectDetails> getProjects() {
+        return projects;
+    }
 
-
+    public void setProjects(Set<ProjectDetails> projects) {
+        this.projects = projects;
+    }
 
     @Override
     public String toString() {
