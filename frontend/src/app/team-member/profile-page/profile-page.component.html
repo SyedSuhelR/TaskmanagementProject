@@ -1,0 +1,49 @@
+<div class="bg-container">
+  <div class="container">
+      <div class="inner-container">
+          <div>
+              <h1 class="card-title">Details</h1>
+              <p><strong>Name:</strong> {{ profile.name }}</p>
+              <p><strong>Email:</strong> {{ profile.email }}</p>
+              <p><strong>Contact:</strong> {{ profile.mobile }}</p>
+          </div>
+          <div>
+              <button class="edit-button" (click)="toggleEdit()">Edit</button>
+              <button class="edit-button" (click)="navigateToMainPage()">Go to Main Page</button>
+          </div>
+      </div>    
+  </div>
+</div>  
+<!-- Popup modal for editing profile -->
+<div class="modal" [ngClass]="{ 'show': editing }" tabindex="-1" role="dialog">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Edit Profile</h5>
+        <!-- <button type="button" class="close" (click)="toggleEdit()" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button> -->
+      </div>
+      <div class="modal-body">
+        <form>
+          <div class="form-group">
+            <label for="name">Name</label>
+            <input type="text" class="form-control" id="name" [(ngModel)]="profile.name" name="name">
+          </div>
+          <div class="form-group">
+            <label for="email">Email</label>
+            <input type="email" class="form-control" id="email" [(ngModel)]="profile.email" name="email">
+          </div>
+          <div class="form-group">
+            <label for="mobile">Mobile</label>
+            <input type="text" class="form-control" id="mobile" [(ngModel)]="profile.mobile" name="mobile">
+          </div>
+        </form>
+      </div>
+      <div class="window-button">
+        <button type="button" class="btn edit-button button-style" (click)="toggleEdit()">Close</button>
+        <button type="button" class="btn edit-button button-style" (click)="saveProfile()">Save</button>
+      </div>
+    </div>
+  </div>
+</div>

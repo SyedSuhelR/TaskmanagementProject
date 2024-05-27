@@ -1,0 +1,32 @@
+<app-project-manager-navbar></app-project-manager-navbar>
+<h2 class="text-center">Project Details</h2>
+<div class="container">
+    
+  
+    <!-- List of projects -->
+    <table>
+      <thead>
+        <tr>
+          <th>Client</th>
+          <th>Project Name</th>
+          <th>Start Date</th>
+          <th>Due Date</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let project of projects">
+          <td>{{ getClientName(project.clientId) }}</td>
+          <td>{{ project.name }}</td>
+          <td>{{ project.startDate | date }}</td>
+          <td>{{ project.dueDate | date }}</td>
+          <td>
+            <div class="action-buttons">
+              <!-- Pass project id as query parameter when clicking view icon -->
+              <button [routerLink]="['/task-list']" [queryParams]="{ id: project.id }"><i class="fa-regular fa-eye"></i></button>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+</div>

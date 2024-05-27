@@ -1,0 +1,102 @@
+
+  .filter-container{
+    width: 100%;
+    margin-left: 20px;
+    display: flex;
+    gap: 10px;
+  }
+  
+  .filter-container input,
+  .filter-container select {
+    padding: 5px;
+    font-size: 16px;
+  }
+  
+
+  
+  .table-responsive {
+    width: 100%;
+    overflow-x: auto;
+  }
+
+  .container {
+    display: flex;
+    justify-content: center; /* Center the table horizontally */
+    padding: 20px; /* Add some padding around the table */
+    box-sizing: border-box; /* Ensure padding is included in the total width */
+    width: 120%;
+    color: #77ffc0;
+  }
+  
+  table {
+    width: 80%; /* Control the width of the table */
+    max-width: 800px; /* Maximum width for the table */
+    border-collapse: collapse;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1), 0 -4px 8px rgba(0, 0, 0, 0.1), 4px 0 8px rgba(0, 0, 0, 0.1), -4px 0 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  
+  th, td {
+    padding: 10px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+  }
+  
+  th {
+    background-color: black;
+  }
+  
+  tbody tr:hover {
+    background-color:rgb(118, 122, 118);
+    color: rgb(15, 14, 14);
+  }
+  
+  td {
+    padding: 10px;
+  }
+  
+  
+  .pending {
+    color: red;
+  }
+  
+  .completed {
+    color: green;
+  }
+
+  .pagination-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .pagination-container button {
+    padding: 5px 10px;
+    font-size: 16px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+  }
+  
+  .pagination button {
+    padding: 5px 10px;
+    font-size: 16px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+  
+  }
+    
+  .pagination button[disabled] {
+    background-color: #ccc;
+    cursor: not-allowed;
+  }
+  
+  .bg-container{
+    height: 120vh;
+    background-color: #201b2c;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
