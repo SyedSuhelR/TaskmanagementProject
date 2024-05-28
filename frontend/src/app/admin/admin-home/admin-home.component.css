@@ -54,3 +54,10 @@ button i {
 button:hover i {
   color: #007BFF;
 }
+
+
+.loading-spinner {
+  display: block;
+  margin: 20px auto;
+}
+

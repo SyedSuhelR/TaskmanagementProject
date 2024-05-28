@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.LinkedHashSet;
 import java.util.List;
 
+@CrossOrigin
 @RestController
 @RequestMapping("/users")
 public class EmployeeController {
@@ -57,5 +58,12 @@ public class EmployeeController {
         employeeRepository.delete(employee);
         return new ResponseEntity<>(HttpStatus.NO_CONTENT);
     }
+    @PutMapping("/activestatus/{id}")
+    public ResponseEntity<Employee> updateStatus(@PathVariable long id,@RequestBody Employee employeeDetails){
+        Employee updateEmployee=employeeRepository.findById(id).orElseThrow(() -> new ResourceNotfoundException("Employee not exist with id "+id));
+        updateEmployee.setActiveStatus(employeeDetails.getActiveStatus());
+        employeeRepository.save(updateEmployee);
+        return ResponseEntity.ok(updateEmployee);
 
+}
 }

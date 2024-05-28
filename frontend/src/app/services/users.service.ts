@@ -30,4 +30,7 @@ export class UsersService {
   getUserById(id: number): Observable<any> {
     return this.http.get<any>(`${this.apiUrl}/${id}`);
   }
+  updateUserActiveStatus(id: number, newActiveStatus: string): Observable<any> {
+    return this.http.put<any>(`${this.apiUrl}/activestatus/${id}`, { activeStatus: newActiveStatus });
+  }
 }

@@ -1,6 +1,7 @@
 <app-navbar></app-navbar>
 <div class="container">
-  <table class="bg-container">
+  <mat-spinner *ngIf="loading" class="loading-spinner"></mat-spinner>
+  <table *ngIf="!loading" class="bg-container">
     <thead>
       <tr>
         <th>User Id</th>

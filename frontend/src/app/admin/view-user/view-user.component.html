@@ -1,11 +1,13 @@
 <app-navbar></app-navbar>
 <div class="container">
   <h1 class="form-heading">User Details</h1>
-  <div *ngIf="user">
+  <mat-spinner *ngIf="loading" class="loading-spinner custom-spinner"></mat-spinner>
+  <div *ngIf="!loading && user">
     <p><strong>User ID:</strong> {{ user.userid }}</p>
     <p><strong>Name:</strong> {{ user.name }}</p>
     <p><strong>Email:</strong> {{ user.email }}</p>
     <p><strong>Role:</strong> {{ user.userRole }}</p>
     <p><strong>Password:</strong> {{ user.password }}</p>
+    <p><strong>Active Status:</strong> {{ user.activeStatus }}</p>
   </div>
 </div>

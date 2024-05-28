@@ -1,6 +1,7 @@
 <app-navbar></app-navbar>
 <div class="container">
-  <table class="bg-container">
+  <mat-spinner *ngIf="loading" class="loading-spinner custom-spinner"></mat-spinner>
+  <table *ngIf="!loading" class="bg-container">
     <thead>
       <tr>
         <th>User Id</th>
@@ -15,35 +16,7 @@
         <td>{{ user.name }}</td>
         <td>{{ user.userRole }}</td>
         <td>
-          <select class="form-select w-75" id="role" name="activityStaus"  required>
-            <option value="" class="drop-down" selected>Choose Status</option>
-            <option value="Active" class="drop-down">Active</option>
-            <option value="In Active" class="drop-down">In Active</option>
-          </select>
-        </td>
-      </tr>
-    </tbody>
-  </table>
-</div>
-
-<!-- <app-navbar></app-navbar>
-<div class="container">
-  <table class="bg-container">
-    <thead>
-      <tr>
-        <th>User Id</th>
-        <th>User Name</th>
-        <th>User Role</th>
-        <th>Action</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr *ngFor="let user of userList">
-        <td>{{ user.userid }}</td>
-        <td>{{ user.name }}</td>
-        <td>{{ user.userRole }}</td>
-        <td>
-          <select (change)="onActiveStatusChange(user.userid, $event.target.value)">
+          <select class="form-select w-75" [value]="user.activeStatus" (change)="onActiveStatusChange(user.userid, $event)">
             <option value="Active">Active</option>
             <option value="In Active">In Active</option>
           </select>
@@ -51,4 +24,4 @@
       </tr>
     </tbody>
   </table>
-</div> -->
+</div>

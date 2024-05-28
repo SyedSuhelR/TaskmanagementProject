@@ -2,9 +2,11 @@ package com.example.springboot.crud.operation.model;
 
 import jakarta.persistence.*;
 import lombok.*;
+import org.springframework.web.bind.annotation.CrossOrigin;
 
 import java.util.Set;
 
+@CrossOrigin
 @Entity
 @AllArgsConstructor
 @NoArgsConstructor

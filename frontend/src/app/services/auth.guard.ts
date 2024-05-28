@@ -1,19 +1,19 @@
 import { Injectable } from '@angular/core';
 import { CanActivate, ActivatedRouteSnapshot, RouterStateSnapshot, UrlTree } from '@angular/router';
 import { Observable } from 'rxjs';
-import { RolesPermissionsService } from './roles-permissions.service'; // Assuming you still need this service for roles
+import { AuthService } from './auth.service'; // Import your AuthService
 
 @Injectable({
   providedIn: 'root',
 })
 export class AuthGuard implements CanActivate {
-  constructor(private rolesPermissionsService: RolesPermissionsService) {}
+  constructor(private authService: AuthService) {}
 
   canActivate(
     route: ActivatedRouteSnapshot,
     state: RouterStateSnapshot
   ): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
-    const userRole = 'Project Manager'; // Fetch the user's role from the authentication service
-    return this.rolesPermissionsService.hasRole(userRole); // Check if the user has a valid role
+    const userRole = this.authService.getUserRole(); // Get the authenticated user's role
+    return this.authService.isLoggedIn() && userRole ? true : false; // Check if user is logged in and has a role
   }
 }

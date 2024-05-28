@@ -10,11 +10,12 @@ export class AuthService {
   private users: any[] = [];
 
   // Hard-coded admin credentials
-  private adminEmail = 'admin@example.com';
-  private adminPassword = 'adminPassword';
+  private adminEmail = 'admin@gmail.com';
+  private adminPassword = 'Admin@123';
   private adminRole = 'Admin';
 
   constructor(private userService: UsersService) {
+    this.loadAuthState(); // Load authentication state from localStorage
     this.loadUsers();
   }
 
@@ -43,12 +44,12 @@ export class AuthService {
     this.clearAuthState();
   }
 
-  isLoggedIn(): boolean { // Renamed from isAuthenticated
-    return this.isAuthenticated;
-  }
-
   getUserRole(): string {
     return this.userRole;
+  }
+
+  isLoggedIn(): boolean {
+    return this.isAuthenticated;
   }
 
   private loadUsers(): void {
@@ -62,13 +63,24 @@ export class AuthService {
     );
   }
 
-  private saveAuthState(username: string, role: string): void {
+  private saveAuthState(email: string, userRole: string): void {
     if (typeof window !== 'undefined' && window.localStorage) {
       localStorage.setItem('auth', JSON.stringify({
         isAuthenticated: this.isAuthenticated,
-        username: username,
-        userRole: role
+        userEmail: email,
+        userRole: userRole
       }));
+    }
+  }
+
+  private loadAuthState(): void {
+    if (typeof window !== 'undefined' && window.localStorage) {
+      const authState = localStorage.getItem('auth');
+      if (authState) {
+        const { isAuthenticated, userRole } = JSON.parse(authState);
+        this.isAuthenticated = isAuthenticated;
+        this.userRole = userRole;
+      }
     }
   }
 

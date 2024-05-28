@@ -11,6 +11,7 @@ import { ChangeDetectorRef } from '@angular/core';
 })
 export class AdminHomeComponent implements OnInit {
   userList: any[] = [];
+  loading: boolean = false; // Add a loading state
 
   constructor(
     private userService: UsersService,
@@ -24,10 +25,13 @@ export class AdminHomeComponent implements OnInit {
   }
 
   loadUsers(): void {
+    this.loading = true; // Set loading to true before making the request
     this.userService.getUsers().subscribe(data => {
       this.userList = data;
+      this.loading = false; // Set loading to false after data is loaded
     }, error => {
       console.error('Error loading users:', error);
+      this.loading = false; // Set loading to false if there is an error
     });
   }
 
@@ -36,9 +40,9 @@ export class AdminHomeComponent implements OnInit {
   }
 
   onDelete(id: number): void {
+    this.loading = true; // Show spinner when delete operation starts
     this.userService.deleteUser(id).subscribe(() => {
       this.userList = this.userList.filter(user => user.userid !== id);
-      this.cdr.detectChanges(); // Trigger change detection manually
       this.snackBar.open('User deleted successfully!', 'Close', {
         duration: 3000
       });
@@ -47,6 +51,11 @@ export class AdminHomeComponent implements OnInit {
       this.snackBar.open('Error deleting user!', 'Close', {
         duration: 3000
       });
+    }).add(() => {
+      // Hide spinner when deletion operation finishes
+      this.loading = false;
+      // Trigger change detection manually
+      this.cdr.detectChanges();
     });
   }
 

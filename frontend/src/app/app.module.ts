@@ -32,7 +32,7 @@ import { RouterModule } from '@angular/router';
 import { TeamMemberTaskAssignmentComponent } from './team-member/team-member-task-assignment/team-member-task-assignment.component';
 import { TeamMemberProjectsdetailsComponent } from './team-member/team-member-projectsdetails/team-member-projectsdetails.component';
 import { HttpClientModule } from '@angular/common/http';
-
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 
 
 @NgModule({
@@ -72,7 +72,8 @@ import { HttpClientModule } from '@angular/common/http';
     ReactiveFormsModule,
     MatSnackBarModule,
     RouterModule,
-    HttpClientModule
+    HttpClientModule,
+    MatProgressSpinnerModule
   ],
   providers: [
     provideClientHydration(),
