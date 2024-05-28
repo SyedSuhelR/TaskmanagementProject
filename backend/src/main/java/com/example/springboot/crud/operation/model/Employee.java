@@ -1,19 +1,18 @@
 package com.example.springboot.crud.operation.model;
 
+
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import org.springframework.web.bind.annotation.CrossOrigin;
 
-import java.util.Set;
-@CrossOrigin
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
 @Table(name="users")
 public class Employee {
+
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -25,17 +24,28 @@ public class Employee {
     private String activeStatus;
     private String password;
 
+    @ManyToMany
+    @JoinColumn(name = "projectId")
+    private ProjectDetails projectId;
 
+    @ManyToMany
+    @JoinColumn(name = "Id")
+    private clientDetails id;
 
-    // Getters and setters
-
-
-    public long getUserid() {
-        return userid;
+    public clientDetails getId() {
+        return id;
     }
 
-    public void setUserid(long userid) {
-        this.userid = userid;
+    public void setId(clientDetails id) {
+        this.id = id;
+    }
+
+    public ProjectDetails getProjectId() {
+        return projectId;
+    }
+
+    public void setProjectId(ProjectDetails projectId) {
+        this.projectId = projectId;
     }
 
     public String getName() {
@@ -44,6 +54,14 @@ public class Employee {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public long getUserid() {
+        return userid;
+    }
+
+    public void setUserid(long userid) {
+        this.userid = userid;
     }
 
     public String getEmail() {
@@ -77,6 +95,7 @@ public class Employee {
     public void setPassword(String password) {
         this.password = password;
     }
+
 
 
 

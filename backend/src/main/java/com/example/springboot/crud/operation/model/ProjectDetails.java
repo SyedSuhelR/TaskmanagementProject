@@ -2,9 +2,7 @@ package com.example.springboot.crud.operation.model;
 
 import jakarta.persistence.*;
 import lombok.*;
-import org.springframework.web.bind.annotation.CrossOrigin;
 
-@CrossOrigin
 @Setter
 @Getter
 @Data
@@ -22,7 +20,9 @@ public class ProjectDetails {
     private String endDate;
     private String projectStatus;
 
-
+    @ManyToOne
+    @JoinColumn(name="Id")
+    private clientDetails Id;
 
     @Override
     public String toString() {
@@ -32,11 +32,17 @@ public class ProjectDetails {
                 ", startDate='" + startDate + '\'' +
                 ", endDate='" + endDate + '\'' +
                 ", projectStatus='" + projectStatus + '\'' +
-
+                ", Id=" + Id +
                 '}';
     }
 
+    public clientDetails getId() {
+        return Id;
+    }
 
+    public void setId(clientDetails id) {
+        Id = id;
+    }
 
     public String getProjectStatus() {
         return projectStatus;
