@@ -28,7 +28,7 @@ import { TeamMemberProjectsdetailsComponent } from './team-member/team-member-pr
 
 const routes: Routes = [
   { path: '', redirectTo: 'admin-login', pathMatch: 'full' },
-  { path: 'home', component: HomePageComponent, canActivate: [RoleGuard], data: { expectedRole: 'admin' } },
+  { path: 'home', component: HomePageComponent, canActivate: [RoleGuard], data: { expectedRole: 'Admin' } },
   { path: 'admin-home', component: AdminHomeComponent },
   { path: 'add-user', component: AddUserComponent },
   { path: 'admin-login', component: AdminModuleComponent },
@@ -42,11 +42,11 @@ const routes: Routes = [
   { path: 'client-information', component: ClientInformationComponent  },
   { path: 'project-details', component: ProjectDetailsComponent},
   { path: 'task-assignment', component: TaskAssignmentComponent },
-  { path: 'main-page', component: MainPageComponent,canActivate: [RoleGuard], data: { expectedRole: 'projectmanager' } },
+  { path: 'main-page', component: MainPageComponent,canActivate: [RoleGuard], data: { expectedRole: 'Project Manager' } },
   {path:'editprofile',component:EditProfileComponent},
   {path:'project-view',component:ProjectViewComponent},
   {path:'teammeber-task-assignment',component:TeamMemberTaskAssignmentComponent},
-  {path:'teammeber-projectdetails',component:TeamMemberProjectsdetailsComponent ,canActivate: [RoleGuard], data: { expectedRole: 'teammember' }},
+  {path:'teammeber-projectdetails',component:TeamMemberProjectsdetailsComponent ,canActivate: [RoleGuard], data: { expectedRole: 'Team Member' }},
 
 ];
 

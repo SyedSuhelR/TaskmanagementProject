@@ -1,5 +1,54 @@
-<!-- admin-permissions.component.html -->
 <app-navbar></app-navbar>
 <div class="container">
-  <p>Manage Access</p>
+  <table class="bg-container">
+    <thead>
+      <tr>
+        <th>User Id</th>
+        <th>User Name</th>
+        <th>User Role</th>
+        <th>Activity Status</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let user of userList">
+        <td>{{ user.userid }}</td>
+        <td>{{ user.name }}</td>
+        <td>{{ user.userRole }}</td>
+        <td>
+          <select class="form-select w-75" id="role" name="activityStaus"  required>
+            <option value="" class="drop-down" selected>Choose Status</option>
+            <option value="Active" class="drop-down">Active</option>
+            <option value="In Active" class="drop-down">In Active</option>
+          </select>
+        </td>
+      </tr>
+    </tbody>
+  </table>
 </div>
+
+<!-- <app-navbar></app-navbar>
+<div class="container">
+  <table class="bg-container">
+    <thead>
+      <tr>
+        <th>User Id</th>
+        <th>User Name</th>
+        <th>User Role</th>
+        <th>Action</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let user of userList">
+        <td>{{ user.userid }}</td>
+        <td>{{ user.name }}</td>
+        <td>{{ user.userRole }}</td>
+        <td>
+          <select (change)="onActiveStatusChange(user.userid, $event.target.value)">
+            <option value="Active">Active</option>
+            <option value="In Active">In Active</option>
+          </select>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div> -->

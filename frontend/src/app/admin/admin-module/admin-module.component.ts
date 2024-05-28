@@ -15,14 +15,14 @@ export class AdminModuleComponent implements OnInit {
   constructor(private router: Router, private authService: AuthService) { }
 
   ngOnInit(): void {
-    if (this.authService.isAuthenticate()) {
+    if (this.authService.isLoggedIn()) {
       this.navigateToRoleBasedRoute(); // Navigate based on user role if already authenticated
     }
   }
 
   onSubmit() {
     this.authService.login(this.enteredMail, this.enteredPass);
-    if (this.authService.isAuthenticate()) {
+    if (this.authService.isLoggedIn()) {
       this.errorMessage = ''; // Reset error message if login is successful
       this.navigateToRoleBasedRoute(); // Navigate based on user role
     } else {
@@ -32,11 +32,12 @@ export class AdminModuleComponent implements OnInit {
 
   private navigateToRoleBasedRoute(): void {
     const userRole = this.authService.getUserRole();
-    if (userRole === 'admin') {
+    //console.log(userRole);
+    if (userRole === 'Admin') {
       this.router.navigate(['/home']);
-    } else if (userRole === 'teammember') {
+    } else if (userRole === 'Team Member') {
       this.router.navigate(['/teammeber-projectdetails']);
-    } else if (userRole === 'projectmanager') {
+    } else if (userRole === 'Project Manager') {
       // Add navigation for project manager if needed
       this.router.navigate(['/main-page']);
     } else {
